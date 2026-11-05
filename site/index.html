@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final Project - Web Portfolio</title>
+  <meta name="description" content="Kezzia Naomi A. Montaño — Graphic Designer & Software Developer.">
+  <meta property="og:title" content="Kezzia Naomi A. Montaño">
+  <meta property="og:description" content="Graphic Designer & Software Developer.">
+  <meta property="og:image" content="assets/Mikrokosmos_Badge1.png">
+  <meta name="theme-color" content="#0f1f0a">
+  <link rel="icon" href="assets/Mikrokosmos_Icon1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&family=DM+Sans:wght@400;500;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a href="#home" class="nav__brand" aria-label="Mikrokosmos home">
+    <img src="assets/logo-icon-crop.png" alt="" width="64" height="64">
+  </a>
+  <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <nav class="nav__links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certificates</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact" class="btn btn--small">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="hero" id="home">
+  <canvas id="codeRain" aria-hidden="true"></canvas>
+  <div class="hero__inner">
+    <p class="eyebrow">Graphic Designer & Software Developer</p>
+    
+    <h1 style="letter-spacing: 4px;">
+      KEZZIA NAOMI A.<br>
+      <span style="display: inline-block; margin-top: 20px;">MONTAÑO</span>
+    </h1>
+    
+    <p style="font-family: 'DM Sans', sans-serif; font-size: 1.4rem; line-height: 1.5; margin-top: 20px; margin-bottom: 30px; color: #f67c9e;">
+      "Even if you're not perfect, you're limited edition."<br>
+      <span style="font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; font-style: italic; opacity: 0.8; display: inline-block; margin-top: 10px;">— RM (BTS)</span>
+    </p>
+
+    <p class="hero__lead" style="margin-bottom: 30px; color: #e5efe0;"></p>
+
+    <span hidden aria-hidden="true" style="display: none;">
+      <span class="typed" id="typed"></span>
+      <span class="caret">|</span>
+    </span>
+    
+    <div class="hero__cta">
+      <a href="#portfolio" class="btn">Enter Portfolio</a>
+      <a href="#contact" class="btn btn--ghost">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow eyebrow--dark">About Me</p>
+      <h2>Hello there! I'm Kezzia.</h2>
+    </div>
+
+    <!-- ABOUT ME -->
+    <div class="about2">
+
+      <!-- Left: video window + mascot -->
+      <div class="about2__stage reveal">
+        <div class="mascot" aria-hidden="true">
+          <span class="mascot__bubble">Hi, I'm Kezzia! ✦</span>
+          <div class="mascot__crop">
+            <video id="mascotVideo" src="assets/0063baa3-chroma-keyed-video_1.webm" autoplay loop muted playsinline preload="auto" tabindex="-1"></video>
+          </div>
+        </div>
+
+        <div class="vwin" id="videoBox">
+          <div class="vwin__bar"><i></i><i></i><i></i><span>about_me.mp4</span></div>
+          <div class="vwin__screen">
+            <img class="vwin__poster" src="assets/mood-2.jpg" alt="" loading="lazy">
+            <div id="promoFrameSlot" data-yt="4SBye4MU9kI"></div>
+            <div id="videoBadge" class="video__badge" role="button" tabindex="0" aria-label="Play About Me video">
+              <span class="video__play" aria-hidden="true">&#9654;</span>
+              <strong>About Me Video</strong>
+              <small>Click to play</small>
+            </div>
+          </div>
+        </div>
+
+        <span class="vchip vchip--orange">✦ BSCS · 3rd Year</span>
+        <span class="vchip vchip--pink">Code × Design</span>
+      </div>
+
+      <!-- Right: story -->
+      <div class="about2__text reveal">
+        <p class="about2__script">a little about me</p>
+        <p class="about2__lead">I'm a <strong>3rd-year Bachelor of Science in Computer Science student</strong> at the City College of Calamba who couldn't pick between building the system and designing the experience, so I do both.</p>
+        <p>I merge analytical system architecture with creative visual design: from Python desktop apps and PHP web systems to brand identities, promo ads and social media kits. Every project starts with solid structure and ends with something people enjoy looking at.</p>
+
+        <dl class="facts">
+          <div><dt>Studying</dt><dd>BSCS · City College of Calamba</dd></div>
+          <div><dt>Based in</dt><dd>Calamba City, Laguna, PH</dd></div>
+          <div><dt>Focus</dt><dd>Systems × Visual design</dd></div>
+          <div><dt>Mantra</dt><dd>You never walk alone</dd></div>
+        </dl>
+
+        <ul class="about2__stats">
+          <li><b data-count="3" data-suffix="rd">0</b><span>Year BSCS</span></li>
+          <li><b data-count="5">0</b><span>Featured projects</span></li>
+          <li><b data-count="2">0</b><span>Disciplines</span></li>
+          <li><b data-count="100" data-suffix="%">0</b><span>Dedicated</span></li>
+        </ul>
+
+        <div class="about2__cta">
+          <a href="#portfolio" class="btn">See my work</a>
+          <a href="#contact" class="btn btn--outline">Say hello</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subhead reveal" style="margin-top: 4rem;">My Services</h3>
+    <p class="subhead__sub reveal">How I can help you elevate your brand and systems.</p>
+
+    <div class="ads">
+      <article class="ad ad--pink reveal">
+        <span class="ad__tag">Design</span>
+        <h4>UI/UX &amp; Graphic Design</h4>
+        <p class="ad__script">Visual Identity</p>
+        <ul>
+          <li>Brand Identity &amp; Logo Systems</li>
+          <li>High-Fidelity Wireframing</li>
+          <li>Style Guides &amp; Mood Boards</li>
+        </ul>
+        <a href="#contact" class="ad__btn">Let's Connect</a>
+      </article>
+      <article class="ad ad--green reveal">
+        <span class="ad__tag">Code</span>
+        <h4>Software Development</h4>
+        <p class="ad__script">Interactive Systems</p>
+        <ul>
+          <li>Interactive Web Systems</li>
+          <li>Desktop Applications (Python/Tkinter/PySide6)</li>
+          <li>System Integration & Database Management</li>
+        </ul>
+        <a href="#contact" class="ad__btn">Let's Connect</a>
+      </article>
+      <article class="ad ad--purple reveal">
+        <span class="ad__tag">Marketing</span>
+        <h4>Digital Marketing Visuals</h4>
+        <p class="ad__script">Promo Ads</p>
+        <ul>
+          <li>Social Media Kits</li>
+          <li>Promo Ads &amp; Posters</li>
+          <li>Campaign Graphics (Canva/GIMP)</li>
+        </ul>
+        <a href="#contact" class="ad__btn">Let's Connect</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section section--dark" id="skills">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">Skills</p>
+      <h2>Skills in my toolbox</h2>
+    </div>
+    <div class="skills">
+      <div class="skills__bars">
+        <div class="bar reveal"><div class="bar__top"><span>Python & Desktop Dev</span><span>90%</span></div><div class="bar__track"><i style="--w:90%"></i></div></div>
+        <div class="bar reveal"><div class="bar__top"><span>HTML / CSS / JS / PHP</span><span>85%</span></div><div class="bar__track"><i style="--w:85%"></i></div></div>
+        <div class="bar reveal"><div class="bar__top"><span>UI / UX & Wireframing</span><span>85%</span></div><div class="bar__track"><i style="--w:85%"></i></div></div>
+        <div class="bar reveal"><div class="bar__top"><span>Graphic Design (Canva/GIMP)</span><span>90%</span></div><div class="bar__track"><i style="--w:90%"></i></div></div>
+      </div>
+      <div class="skills__chips reveal">
+        <h3>Development Tools</h3>
+        <ul class="chips">
+          <li>Python 3</li><li>HTML/CSS</li><li>PHP</li><li>MySQL</li><li>Dart</li><li>Git & GitHub</li><li>VS Code</li><li>XAMPP</li>
+        </ul>
+        <h3>Design Tools</h3>
+        <ul class="chips chips--alt">
+          <li>Canva</li><li>GIMP</li><li>Figma</li><li>UI/UX Prototyping</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" id="certifications">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow eyebrow--dark">Certifications & Achievements</p>
+      <h2>Academic Milestones</h2>
+    </div>
+    <div class="certs">
+      <article class="cert reveal">
+        <div class="cert__icon">&#9733;</div>
+        <h4>System Requirements Analysis</h4>
+        <p>SmartLib Integrated Library System</p>
+        <span class="cert__year">2026</span>
+      </article>
+      <article class="cert reveal">
+        <div class="cert__icon">&#9733;</div>
+        <h4>Software Quality Evaluation</h4>
+        <p>ISO/IEC 25010:2023 Survey Administration</p>
+        <span class="cert__year">2026</span>
+      </article>
+      <article class="cert reveal">
+        <div class="cert__icon">&#9733;</div>
+        <h4>Literature Gap Analysis</h4>
+        <p>Python Data Visualization</p>
+        <span class="cert__year">2026</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section section--cream" id="portfolio">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow eyebrow--dark">Portfolio</p>
+      <h2>Check Out My Work</h2>
+      <p class="lead">Selected academic projects and digital marketing campaigns.</p>
+    </div>
+
+    <div class="filters reveal" role="tablist">
+      <button class="filter is-active" data-filter="all">All</button>
+      <button class="filter" data-filter="software">Software</button>
+      <button class="filter" data-filter="design">Design</button>
+    </div>
+
+    <div class="grid" id="grid">
+      <figure class="work" data-cat="design"><button data-full="assets/Mikrokosmos_Horizontal.png" data-cap="Brew Haven Marketing Assets"><img src="assets/Mikrokosmos_Horizontal.png" alt="Brew Haven Marketing Assets" loading="lazy"></button><figcaption>Brew Haven (Canva/GIMP)</figcaption></figure>
+      <figure class="work" data-cat="software"><button data-full="assets/Mikrokosmos_Vertical.png" data-cap="SmartLib Web System"><img src="assets/Mikrokosmos_Vertical.png" alt="SmartLib Web System" loading="lazy"></button><figcaption>SmartLib Web (HTML/PHP)</figcaption></figure>
+      <figure class="work" data-cat="software"><button data-full="assets/Mikrokosmos_Icon1.png" data-cap="Python Tkinter SIS"><img src="assets/Mikrokosmos_Icon1.png" alt="Python Tkinter SIS" loading="lazy"></button><figcaption>Python Tkinter SIS</figcaption></figure>
+      <figure class="work" data-cat="software"><button data-full="assets/Mikrokosmos_Icon2.png" data-cap="PC Builder Desktop Simulator"><img src="assets/Mikrokosmos_Icon2.png" alt="PC Builder Desktop Simulator" loading="lazy"></button><figcaption>PC Builder Simulator</figcaption></figure>
+      <figure class="work work--wide" data-cat="design"><button data-full="assets/styleguide.png" data-cap="MIKROKOSMOS Brand Style Guide"><img src="assets/styleguide.png" alt="MIKROKOSMOS Style Guide" loading="lazy"></button><figcaption>MIKROKOSMOS Style Guide</figcaption></figure>
+    </div>
+
+    <div class="mood reveal">
+      <h3 class="subhead">Mood Board</h3>
+      <p class="subhead__sub">The look and feel behind Mikrokosmos.</p>
+      <div class="mood__grid">
+        <img src="assets/mood-1.jpg" alt="Green code rain reference" loading="lazy">
+        <img src="assets/mood-2.jpg" alt="Developer desk with UI flow sketches" loading="lazy">
+        <img src="assets/mood-3.jpg" alt="Code editor on a dark screen" loading="lazy">
+        <img src="assets/hero-code.jpg" alt="Green holographic interface screens" loading="lazy">
+      </div>
+    </div>
+
+    <div class="palette reveal" aria-label="Brand colours">
+      <span style="--c:#f67c9e"><i></i>#f67c9e</span>
+      <span style="--c:#2d5a16"><i></i>#2d5a16</span>
+      <span style="--c:#fdab12"><i></i>#fdab12</span>
+      <span style="--c:#5547ac"><i></i>#5547ac</span>
+      <span style="--c:#d9d9d9"><i></i>#d9d9d9</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section--dark contact" id="contact">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <img class="contact__badge" src="assets/Mikrokosmos_Badge2.png" alt="" width="120" height="120" loading="lazy">
+      <p class="eyebrow">HOST: MOTOKO KUSANAGI</p>
+      <h2>Let's Work Together!</h2>
+      <p class="lead">Don't be afraid to reach out. You + Me = AWESOME! 🤩</p>
+    </div>
+    <div class="contact__grid">
+      <ul class="contact__list reveal">
+        <li><span>Email</span><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></li>
+        <li><span>GitHub</span><a href="#" rel="noopener">github.com/yourusername</a></li>
+        <li><span>LinkedIn</span><a href="#" rel="noopener">linkedin.com/in/yourusername</a></li>
+        <li><span>Location</span><b>Calamba City, Laguna, Philippines</b><small class="localtime" id="localTime"></small></li>
+      </ul>
+      <form class="form reveal" id="contactForm" novalidate>
+        <label>Your name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        <label>What do you need?
+          <select name="topic">
+            <option>Software Development</option>
+            <option>UI/UX &amp; Graphic Design</option>
+            <option>Digital Marketing Visuals</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Message<textarea name="message" rows="5" required></textarea></label>
+        <button type="submit" class="btn">Send message</button>
+        <p class="form__status" id="formStatus" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <img src="assets/Mikrokosmos_Horizontal.png" alt="Mikrokosmos" width="220" height="220">
+  <p>&copy; <span id="year"></span> Kezzia Naomi A. Montaño. You never walk alone.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" id="lbClose" aria-label="Close">&times;</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/extras.js"></script>
+<script src="js/more.js"></script>
+<script src="js/about.js"></script>
+</body>
+</html>
