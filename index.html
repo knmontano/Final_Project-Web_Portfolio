@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,317 +13,800 @@
   <link rel="icon" href="assets/Mikrokosmos_Icon1.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&family=DM+Sans:wght@400;500;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&family=DM+Sans:wght@400;500;700&family=Mrs+Saint+Delafield&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<a class="skip" href="#about">Skip to content</a>
+  <a class="skip" href="#about">Skip to content</a>
 
-<header class="nav" id="nav">
-  <a href="#home" class="nav__brand" aria-label="Mikrokosmos home">
-    <img src="assets/logo-icon-crop.png" alt="" width="64" height="64">
-  </a>
-  <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-  <nav class="nav__links" id="navLinks">
-    <a href="#home">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#certifications">Certificates</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact" class="btn btn--small">Contact</a>
-  </nav>
-</header>
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__brand" aria-label="Mikrokosmos home">
+      <img src="assets/logo-icon-crop.png" alt="" width="64" height="64">
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"
+      aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certificates</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact" class="btn btn--small">Contact</a>
+    </nav>
+  </header>
 
-<main>
+  <main>
 
-<!-- HOME -->
-<section class="hero" id="home">
-  <canvas id="codeRain" aria-hidden="true"></canvas>
-  <div class="hero__inner">
-    <p class="eyebrow">Graphic Designer & Software Developer</p>
-    
-    <h1 style="letter-spacing: 4px;">
-      KEZZIA NAOMI A.<br>
-      <span style="display: inline-block; margin-top: 20px;">MONTAÑO</span>
-    </h1>
-    
-    <p style="font-family: 'DM Sans', sans-serif; font-size: 1.4rem; line-height: 1.5; margin-top: 20px; margin-bottom: 30px; color: #f67c9e;">
-      "Even if you're not perfect, you're limited edition."<br>
-      <span style="font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; font-style: italic; opacity: 0.8; display: inline-block; margin-top: 10px;">— RM (BTS)</span>
-    </p>
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <canvas id="codeRain" aria-hidden="true"></canvas>
+      <div class="hero__inner">
+        <p class="eyebrow">Graphic Designer & Software Developer</p>
 
-    <p class="hero__lead" style="margin-bottom: 30px; color: #e5efe0;"></p>
+        <h1 style="letter-spacing: 4px;">
+          KEZZIA NAOMI A.<br>
+          <span style="display: inline-block; margin-top: 20px;">MONTAÑO</span>
+        </h1>
 
-    <span hidden aria-hidden="true" style="display: none;">
-      <span class="typed" id="typed"></span>
-      <span class="caret">|</span>
-    </span>
-    
-    <div class="hero__cta">
-      <a href="#portfolio" class="btn">Enter Portfolio</a>
-      <a href="#contact" class="btn btn--ghost">Book Now</a>
-    </div>
-  </div>
-</section>
+        <p
+          style="font-family: 'DM Sans', sans-serif; font-size: 1.4rem; line-height: 1.5; margin-top: 20px; margin-bottom: 30px; color: #f67c9e;">
+          "Even if you're not perfect, you're limited edition."<br>
+          <span
+            style="font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; font-style: italic; opacity: 0.8; display: inline-block; margin-top: 10px;">—
+            RM (BTS)</span>
+        </p>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="wrap">
-    <div class="section__head reveal">
-      <p class="eyebrow eyebrow--dark">About Me</p>
-      <h2>Hello there! I'm Kezzia.</h2>
-    </div>
+        <p class="hero__lead" style="margin-bottom: 30px; color: #e5efe0;"></p>
 
-    <!-- ABOUT ME -->
-    <div class="about2">
+        <span hidden aria-hidden="true" style="display: none;">
+          <span class="typed" id="typed"></span>
+          <span class="caret">|</span>
+        </span>
 
-      <!-- Left: video window + mascot -->
-      <div class="about2__stage reveal">
-        <div class="mascot" aria-hidden="true">
-          <span class="mascot__bubble">Hi, I'm Kezzia! ✦</span>
-          <div class="mascot__crop">
-            <video id="mascotVideo" src="assets/0063baa3-chroma-keyed-video_1.webm" autoplay loop muted playsinline preload="auto" tabindex="-1"></video>
+        <div class="hero__cta">
+          <a href="#portfolio" class="btn">Enter Portfolio</a>
+          <a href="#contact" class="btn btn--ghost">Book Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section__head reveal">
+          <p class="eyebrow eyebrow--dark">About Me</p>
+          <h2>Hello there! I'm Kezzia.</h2>
+        </div>
+
+        <!-- ABOUT ME -->
+        <div class="about2">
+
+          <!-- Left: video window + mascot -->
+          <div class="about2__stage reveal">
+            <div class="mascot" aria-hidden="true">
+              <span class="mascot__bubble">Watch my ads! ✦</span>
+              <div class="mascot__crop">
+                <video id="mascotVideo" src="assets/chroma-keyed-video (1).webm" autoplay loop muted playsinline preload="auto" tabindex="-1"></video>
+              </div>
+            </div>
+
+            <div class="vwin" id="videoBox">
+              <div class="vwin__bar"><i></i><i></i><i></i><span>my_ads.mp4</span></div>
+              <div class="vwin__screen"
+                style="position: relative; width: 100%; aspect-ratio: 16/10; background: #000; overflow: hidden;">
+
+                <!-- Poster Image -->
+                <img class="vwin__poster" id="videoPoster" src="assets/mood-2.jpg" alt="" loading="lazy"
+                  style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; transition: opacity 0.35s ease; pointer-events: none;">
+
+                <!-- YouTube Player Slot -->
+                <div id="promoFrameSlot" data-yt="4SBye4MU9kI"
+                  style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1;"></div>
+
+                <!-- Click-to-play badge -->
+                <div id="videoBadge" class="video__badge" role="button" tabindex="0" aria-label="Play ads video"
+                  style="position: absolute; inset: 0; z-index: 3; cursor: pointer;">
+                  <span class="video__play" aria-hidden="true">&#9654;</span>
+                  <strong>My Ads</strong>
+                  <small>Click to play</small>
+                </div>
+
+              </div>
+            </div>
+
+            <span class="vchip vchip--pink">My Promotional Video</span>
+          </div>
+
+          <!-- Right: story -->
+          <div class="about2__text reveal">
+            <p class="about2__lead">I'm a <strong>3rd-year Bachelor of Science in Computer Science student</strong> at
+              the City College of Calamba who couldn't pick between building the system and designing the experience, so
+              I do both.</p>
+            <p>I merge analytical system architecture with creative visual design: from desktop apps and web systems to
+              brand identities, promo ads and social media kits. Every project starts with solid structure and ends with
+              something people enjoy looking at.</p>
+
+            <dl class="facts">
+              <div>
+                <dt>Focus</dt>
+                <dd>Systems × Visual design</dd>
+              </div>
+              <div>
+                <dt>Open to</dt>
+                <dd>Freelance &amp; collaborations</dd>
+              </div>
+            </dl>
           </div>
         </div>
 
-        <div class="vwin" id="videoBox">
-          <div class="vwin__bar"><i></i><i></i><i></i><span>about_me.mp4</span></div>
-          <div class="vwin__screen">
-            <img class="vwin__poster" src="assets/mood-2.jpg" alt="" loading="lazy">
-            <div id="promoFrameSlot" data-yt="4SBye4MU9kI"></div>
-            <div id="videoBadge" class="video__badge" role="button" tabindex="0" aria-label="Play About Me video">
-              <span class="video__play" aria-hidden="true">&#9654;</span>
-              <strong>About Me Video</strong>
-              <small>Click to play</small>
+      </div>
+    </section>
+
+    <!-- DIVIDER BAND -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__row "><div class="ticker__track"><span>Brand Identity</span><span>Web Systems</span><span>UI/UX Design</span><span>Promo Ads</span><span>Desktop Apps</span><span>Social Media Kits</span><span>Databases</span><span>Style Guides</span><span>Brand Identity</span><span>Web Systems</span><span>UI/UX Design</span><span>Promo Ads</span><span>Desktop Apps</span><span>Social Media Kits</span><span>Databases</span><span>Style Guides</span></div></div>
+      <div class="ticker__row ticker__row--pink"><div class="ticker__track"><span>Style Guides</span><span>Databases</span><span>Social Media Kits</span><span>Desktop Apps</span><span>Promo Ads</span><span>UI/UX Design</span><span>Web Systems</span><span>Brand Identity</span><span>Style Guides</span><span>Databases</span><span>Social Media Kits</span><span>Desktop Apps</span><span>Promo Ads</span><span>UI/UX Design</span><span>Web Systems</span><span>Brand Identity</span></div></div>
+    </div>
+
+    <!-- MY SERVICES SECTION -->
+    <section class="section services-section" id="services">
+    <span class="blob blob--pink" aria-hidden="true"></span><span class="blob blob--purple" aria-hidden="true"></span><span class="blob blob--orange" aria-hidden="true"></span>
+    <span class="float-star" style="--x:8%;--y:12%;--d:0s" aria-hidden="true">✦</span><span class="float-star" style="--x:90%;--y:9%;--d:1.2s" aria-hidden="true">✧</span><span class="float-star" style="--x:5%;--y:55%;--d:2.1s" aria-hidden="true">✶</span><span class="float-star" style="--x:94%;--y:60%;--d:.6s" aria-hidden="true">✦</span><span class="float-star" style="--x:48%;--y:3%;--d:1.8s" aria-hidden="true">✧</span>
+          <div class="wrap">
+            <div class="services-header reveal">
+              <p class="eyebrow eyebrow--dark">What I do</p>
+              <h2>My Services</h2>
+              <span class="squiggle" aria-hidden="true"></span>
+              <p>How I can help you elevate your brand and systems.</p>
+            </div>
+
+            <div class="services-grid reveal is-in">
+
+              <!-- Card 1: Design -->
+              <div class="service-card service-card--pink">
+                <div class="service-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                  <path d="M2 2l7.586 7.586"></path>
+                  <circle cx="11" cy="11" r="2"></circle>
+                </svg></span><span class="service-pill">DESIGN</span></div>
+                <span class="service-num">01</span>
+                <h3 class="service-title">UI/UX & Graphic Design</h3>
+                <p class="service-script">Visual Identity</p>
+                <p class="service-desc">Clean, cohesive visuals: logos, style guides and high-fidelity interface designs that look sharp and feel easy to use.</p>
+
+                <ul class="service-list">
+                  <li><span class="bullet-icon">✓</span> Brand Identity & Logo Systems</li>
+                  <li><span class="bullet-icon">✓</span> High-Fidelity Wireframing</li>
+                  <li><span class="bullet-icon">✓</span> Style Guides & Mood Boards</li>
+                </ul>
+                <p class="service-ideal"><b>Ideal for:</b> Brands, startups &amp; student projects</p>
+
+                <!-- Subtle Ring & Category Watermark -->
+                <div class="service-deco-ring"></div>
+                <svg class="service-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                  <path d="M2 2l7.586 7.586"></path>
+                  <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+              </div>
+
+              <!-- Card 2: Code -->
+              <div class="service-card service-card--green">
+                <div class="service-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                  <line x1="14" y1="4" x2="10" y2="20"></line>
+                </svg></span><span class="service-pill">CODE</span></div>
+                <span class="service-num">02</span>
+                <h3 class="service-title">Software Development</h3>
+                <p class="service-script">Interactive Systems</p>
+                <p class="service-desc">Working systems built from the ground up: responsive websites and desktop apps, backed by well-structured databases.</p>
+
+                <ul class="service-list">
+                  <li><span class="bullet-icon">✓</span> Interactive Web Systems</li>
+                  <li><span class="bullet-icon">✓</span> Desktop Applications</li>
+                  <li><span class="bullet-icon">✓</span> System Integration & Database Management</li>
+                </ul>
+                <p class="service-ideal"><b>Ideal for:</b> Small businesses, schools &amp; organizations</p>
+
+                <!-- Subtle Ring & Category Watermark -->
+                <div class="service-deco-ring"></div>
+                <svg class="service-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                  <line x1="14" y1="4" x2="10" y2="20"></line>
+                </svg>
+              </div>
+
+              <!-- Card 3: Marketing -->
+              <div class="service-card service-card--purple">
+                <div class="service-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 11l18-5v12L3 14v-3z"></path>
+                  <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                </svg></span><span class="service-pill">MARKETING</span></div>
+                <span class="service-num">03</span>
+                <h3 class="service-title">Digital Marketing Visuals</h3>
+                <p class="service-script">Promo Ads</p>
+                <p class="service-desc">Eye-catching promo ads, posters and social media kits that keep your brand consistent on every platform.</p>
+
+                <ul class="service-list">
+                  <li><span class="bullet-icon">✓</span> Social Media Kits</li>
+                  <li><span class="bullet-icon">✓</span> Promo Ads & Posters</li>
+                  <li><span class="bullet-icon">✓</span> Campaign Graphics</li>
+                </ul>
+                <p class="service-ideal"><b>Ideal for:</b> Shops, events &amp; online campaigns</p>
+
+                <!-- Subtle Ring & Category Watermark -->
+                <div class="service-deco-ring"></div>
+                <svg class="service-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 11l18-5v12L3 14v-3z"></path>
+                  <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                </svg>
+              </div>
+
+            </div>
+                      <!-- How it works + CTA -->
+            <div class="process reveal is-in">
+              <h3 class="process__title">How we'll work together</h3>
+              <ol class="process__steps">
+                <li><span class="process__n">1</span><h4>Discuss</h4><p>We talk about your goals, audience and deadline.</p></li>
+                <li><span class="process__n">2</span><h4>Plan</h4><p>I outline the structure, style direction and timeline.</p></li>
+                <li><span class="process__n">3</span><h4>Create</h4><p>I design or build it and share progress for your feedback.</p></li>
+                <li><span class="process__n">4</span><h4>Deliver</h4><p>You get final files or a tested, ready-to-use system.</p></li>
+              </ol>
+              <div class="services-cta">
+                <div>
+                  <strong>Have a project in mind?</strong>
+                  <span>Open to freelance &amp; collaborations.</span>
+                </div>
+                <a href="#contact" class="btn">Start a project</a>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        <span class="vchip vchip--orange">✦ BSCS · 3rd Year</span>
-        <span class="vchip vchip--pink">Code × Design</span>
-      </div>
+        <!-- SKILLS SECTION -->
+        <section class="section section--dark" id="skills">
+          <div class="wrap">
+            <div class="section__head reveal">
+              <p class="eyebrow">Skills</p>
+              <h2>Skills in my toolbox</h2>
+              <p class="lead" style="font-size: 0.95rem; opacity: 0.8; margin-top: 5px;">Hover (or tap) any skill card to flip it and read what it's about.</p>
+              <div class="skill-stats" id="skillStats" aria-hidden="true"></div>
+              <div class="skill-filters" id="skillFilters" role="tablist" aria-label="Filter skills">
+                <button class="skill-filter is-active" data-skill="all" role="tab" aria-selected="true">All</button>
+                <button class="skill-filter" data-skill="programming" role="tab" aria-selected="false">Programming</button>
+                <button class="skill-filter" data-skill="graphics" role="tab" aria-selected="false">Graphics</button>
+                <button class="skill-filter" data-skill="network" role="tab" aria-selected="false">Network</button>
+                <button class="skill-filter" data-skill="tools" role="tab" aria-selected="false">Tools</button>
+              </div>
+            </div>
 
-      <!-- Right: story -->
-      <div class="about2__text reveal">
-        <p class="about2__script">a little about me</p>
-        <p class="about2__lead">I'm a <strong>3rd-year Bachelor of Science in Computer Science student</strong> at the City College of Calamba who couldn't pick between building the system and designing the experience, so I do both.</p>
-        <p>I merge analytical system architecture with creative visual design: from Python desktop apps and PHP web systems to brand identities, promo ads and social media kits. Every project starts with solid structure and ends with something people enjoy looking at.</p>
+            <!-- Parent Grid para mahati sa 2 columns (2 groups per row) -->
+            <div class="skills-two-column-layout reveal is-in">
 
-        <dl class="facts">
-          <div><dt>Studying</dt><dd>BSCS · City College of Calamba</dd></div>
-          <div><dt>Based in</dt><dd>Calamba City, Laguna, PH</dd></div>
-          <div><dt>Focus</dt><dd>Systems × Visual design</dd></div>
-          <div><dt>Mantra</dt><dd>You never walk alone</dd></div>
-        </dl>
+              <!-- Group 1: Programming -->
+              <div class="skill-group" data-group="programming">
+                <h3 class="skill-category-title">Programming</h3>
+                <div class="flip-grid">
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">C</div>
+                      <div class="card-back">Procedural programming language for system/low-level development.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">C++</div>
+                      <div class="card-back">Extension of C with object-oriented features for software/games.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Java</div>
+                      <div class="card-back">Robust, class-based, object-oriented language for cross-platform apps.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Python</div>
+                      <div class="card-back">Versatile high-level language for desktop apps and data analysis.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Dart</div>
+                      <div class="card-back">Google's client-optimized language for multi-platform apps.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">PHP</div>
+                      <div class="card-back">Server-side scripting language designed for web development.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">JavaScript</div>
+                      <div class="card-back">Core scripting language that adds interactivity to web pages.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Assembly (ASM)</div>
+                      <div class="card-back">Low-level programming language providing direct interface with computer
+                        hardware.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-        <ul class="about2__stats">
-          <li><b data-count="3" data-suffix="rd">0</b><span>Year BSCS</span></li>
-          <li><b data-count="5">0</b><span>Featured projects</span></li>
-          <li><b data-count="2">0</b><span>Disciplines</span></li>
-          <li><b data-count="100" data-suffix="%">0</b><span>Dedicated</span></li>
-        </ul>
+              <!-- Group 2: Graphics -->
+              <div class="skill-group" data-group="graphics">
+                <h3 class="skill-category-title">Graphics</h3>
+                <div class="flip-grid">
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Canva</div>
+                      <div class="card-back">Platform for creating social media graphics and marketing assets.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Figma</div>
+                      <div class="card-back">Collaborative interface design tool for UI/UX prototyping.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">UI / UX Prototyping</div>
+                      <div class="card-back">Designing intuitive user interfaces and user flows.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Promo Ads</div>
+                      <div class="card-back">Crafting engaging promotional visuals for digital campaigns.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Social Media Kits</div>
+                      <div class="card-back">Cohesive visual branding packages for online platforms.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-        <div class="about2__cta">
-          <a href="#portfolio" class="btn">See my work</a>
-          <a href="#contact" class="btn btn--outline">Say hello</a>
-        </div>
-      </div>
-    </div>
+              <!-- Group 3: Network -->
+              <div class="skill-group" data-group="network">
+                <h3 class="skill-category-title">Network</h3>
+                <div class="flip-grid">
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Network Concepts</div>
+                      <div class="card-back">Fundamental principles of computer networking and architecture.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">TCP/IP & Routing</div>
+                      <div class="card-back">Core communication protocols and packet-routing methods.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">LAN / WAN Setup</div>
+                      <div class="card-back">Configuring Local and Wide Area Networks for connectivity.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Databases & MySQL</div>
+                      <div class="card-back">Storing, organizing, and querying relational data efficiently.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">System Integration</div>
+                      <div class="card-back">Combining separate sub-systems into a unified whole.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <h3 class="subhead reveal" style="margin-top: 4rem;">My Services</h3>
-    <p class="subhead__sub reveal">How I can help you elevate your brand and systems.</p>
+              <!-- Group 4: Tools & Utilities -->
+              <div class="skill-group" data-group="tools">
+                <h3 class="skill-category-title">Tools & Utilities</h3>
+                <div class="flip-grid">
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">HTML5 / CSS3</div>
+                      <div class="card-back">Standard markup and styling languages for web pages.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">Git & GitHub</div>
+                      <div class="card-back">Version control system for tracking code changes.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">VS Code</div>
+                      <div class="card-back">Lightweight source code editor packed with useful extensions.</div>
+                    </div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="card-inner">
+                      <div class="card-front">XAMPP</div>
+                      <div class="card-back">Local server solution stack for testing PHP and MySQL.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <div class="ads">
-      <article class="ad ad--pink reveal">
-        <span class="ad__tag">Design</span>
-        <h4>UI/UX &amp; Graphic Design</h4>
-        <p class="ad__script">Visual Identity</p>
-        <ul>
-          <li>Brand Identity &amp; Logo Systems</li>
-          <li>High-Fidelity Wireframing</li>
-          <li>Style Guides &amp; Mood Boards</li>
-        </ul>
-        <a href="#contact" class="ad__btn">Let's Connect</a>
-      </article>
-      <article class="ad ad--green reveal">
-        <span class="ad__tag">Code</span>
-        <h4>Software Development</h4>
-        <p class="ad__script">Interactive Systems</p>
-        <ul>
-          <li>Interactive Web Systems</li>
-          <li>Desktop Applications (Python/Tkinter/PySide6)</li>
-          <li>System Integration & Database Management</li>
-        </ul>
-        <a href="#contact" class="ad__btn">Let's Connect</a>
-      </article>
-      <article class="ad ad--purple reveal">
-        <span class="ad__tag">Marketing</span>
-        <h4>Digital Marketing Visuals</h4>
-        <p class="ad__script">Promo Ads</p>
-        <ul>
-          <li>Social Media Kits</li>
-          <li>Promo Ads &amp; Posters</li>
-          <li>Campaign Graphics (Canva/GIMP)</li>
-        </ul>
-        <a href="#contact" class="ad__btn">Let's Connect</a>
-      </article>
-    </div>
-  </div>
-</section>
+            </div>
+          </div>
+        </section>
 
-<!-- SKILLS -->
-<section class="section section--dark" id="skills">
-  <div class="wrap">
-    <div class="section__head reveal">
-      <p class="eyebrow">Skills</p>
-      <h2>Skills in my toolbox</h2>
-    </div>
-    <div class="skills">
-      <div class="skills__bars">
-        <div class="bar reveal"><div class="bar__top"><span>Python & Desktop Dev</span><span>90%</span></div><div class="bar__track"><i style="--w:90%"></i></div></div>
-        <div class="bar reveal"><div class="bar__top"><span>HTML / CSS / JS / PHP</span><span>85%</span></div><div class="bar__track"><i style="--w:85%"></i></div></div>
-        <div class="bar reveal"><div class="bar__top"><span>UI / UX & Wireframing</span><span>85%</span></div><div class="bar__track"><i style="--w:85%"></i></div></div>
-        <div class="bar reveal"><div class="bar__top"><span>Graphic Design (Canva/GIMP)</span><span>90%</span></div><div class="bar__track"><i style="--w:90%"></i></div></div>
-      </div>
-      <div class="skills__chips reveal">
-        <h3>Development Tools</h3>
-        <ul class="chips">
-          <li>Python 3</li><li>HTML/CSS</li><li>PHP</li><li>MySQL</li><li>Dart</li><li>Git & GitHub</li><li>VS Code</li><li>XAMPP</li>
-        </ul>
-        <h3>Design Tools</h3>
-        <ul class="chips chips--alt">
-          <li>Canva</li><li>GIMP</li><li>Figma</li><li>UI/UX Prototyping</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
+      <!-- CERTIFICATIONS -->
 <section class="section" id="certifications">
   <div class="wrap">
     <div class="section__head reveal">
-      <p class="eyebrow eyebrow--dark">Certifications & Achievements</p>
-      <h2>Academic Milestones</h2>
-    </div>
-    <div class="certs">
-      <article class="cert reveal">
-        <div class="cert__icon">&#9733;</div>
-        <h4>System Requirements Analysis</h4>
-        <p>SmartLib Integrated Library System</p>
-        <span class="cert__year">2026</span>
-      </article>
-      <article class="cert reveal">
-        <div class="cert__icon">&#9733;</div>
-        <h4>Software Quality Evaluation</h4>
-        <p>ISO/IEC 25010:2023 Survey Administration</p>
-        <span class="cert__year">2026</span>
-      </article>
-      <article class="cert reveal">
-        <div class="cert__icon">&#9733;</div>
-        <h4>Literature Gap Analysis</h4>
-        <p>Python Data Visualization</p>
-        <span class="cert__year">2026</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section class="section section--cream" id="portfolio">
-  <div class="wrap">
-    <div class="section__head reveal">
-      <p class="eyebrow eyebrow--dark">Portfolio</p>
-      <h2>Check Out My Work</h2>
-      <p class="lead">Selected academic projects and digital marketing campaigns.</p>
-    </div>
-
-    <div class="filters reveal" role="tablist">
-      <button class="filter is-active" data-filter="all">All</button>
-      <button class="filter" data-filter="software">Software</button>
-      <button class="filter" data-filter="design">Design</button>
-    </div>
-
-    <div class="grid" id="grid">
-      <figure class="work" data-cat="design"><button data-full="assets/Mikrokosmos_Horizontal.png" data-cap="Brew Haven Marketing Assets"><img src="assets/Mikrokosmos_Horizontal.png" alt="Brew Haven Marketing Assets" loading="lazy"></button><figcaption>Brew Haven (Canva/GIMP)</figcaption></figure>
-      <figure class="work" data-cat="software"><button data-full="assets/Mikrokosmos_Vertical.png" data-cap="SmartLib Web System"><img src="assets/Mikrokosmos_Vertical.png" alt="SmartLib Web System" loading="lazy"></button><figcaption>SmartLib Web (HTML/PHP)</figcaption></figure>
-      <figure class="work" data-cat="software"><button data-full="assets/Mikrokosmos_Icon1.png" data-cap="Python Tkinter SIS"><img src="assets/Mikrokosmos_Icon1.png" alt="Python Tkinter SIS" loading="lazy"></button><figcaption>Python Tkinter SIS</figcaption></figure>
-      <figure class="work" data-cat="software"><button data-full="assets/Mikrokosmos_Icon2.png" data-cap="PC Builder Desktop Simulator"><img src="assets/Mikrokosmos_Icon2.png" alt="PC Builder Desktop Simulator" loading="lazy"></button><figcaption>PC Builder Simulator</figcaption></figure>
-      <figure class="work work--wide" data-cat="design"><button data-full="assets/styleguide.png" data-cap="MIKROKOSMOS Brand Style Guide"><img src="assets/styleguide.png" alt="MIKROKOSMOS Style Guide" loading="lazy"></button><figcaption>MIKROKOSMOS Style Guide</figcaption></figure>
-    </div>
-
-    <div class="mood reveal">
-      <h3 class="subhead">Mood Board</h3>
-      <p class="subhead__sub">The look and feel behind Mikrokosmos.</p>
-      <div class="mood__grid">
-        <img src="assets/mood-1.jpg" alt="Green code rain reference" loading="lazy">
-        <img src="assets/mood-2.jpg" alt="Developer desk with UI flow sketches" loading="lazy">
-        <img src="assets/mood-3.jpg" alt="Code editor on a dark screen" loading="lazy">
-        <img src="assets/hero-code.jpg" alt="Green holographic interface screens" loading="lazy">
+      <p class="eyebrow eyebrow--dark">Certifications</p>
+      <h2>My Certificates</h2>
+      <p class="lead">Tap a certificate to view it in full.</p>
+      <div class="cstats" aria-hidden="true">
+        <span><b>6</b> certificates</span>
+        <span><b>4</b> TESDA</span>
+        <span><b>2</b> international</span>
+      </div>
+      <div class="cfilters" role="tablist" aria-label="Filter certificates">
+        <button class="cfilter is-active" data-f="all" role="tab" aria-selected="true">All <small>6</small></button>
+        <button class="cfilter" data-f="tech" role="tab" aria-selected="false">Tech &amp; Design <small>2</small></button>
+        <button class="cfilter" data-f="skills" role="tab" aria-selected="false">Hospitality &amp; Soft Skills <small>4</small></button>
       </div>
     </div>
 
-    <div class="palette reveal" aria-label="Brand colours">
-      <span style="--c:#f67c9e"><i></i>#f67c9e</span>
-      <span style="--c:#2d5a16"><i></i>#2d5a16</span>
-      <span style="--c:#fdab12"><i></i>#fdab12</span>
-      <span style="--c:#5547ac"><i></i>#5547ac</span>
-      <span style="--c:#d9d9d9"><i></i>#d9d9d9</span>
+    <div class="certs2">
+      <article class="cert2 reveal" data-cat="skills">
+        <button class="cert2__img" data-cap="Interpersonal Skills – Advanced" aria-label="View certificate: Interpersonal Skills – Advanced">
+          <img src="assets/Wadhwani_Foundation_Certificate.jpg" alt="Interpersonal Skills – Advanced certificate" loading="lazy">
+          <span class="cert2__new">NEW</span>
+        </button>
+        <div class="cert2__body">
+          <span class="cert2__tag">Microcertificate</span>
+          <h4>Interpersonal Skills – Advanced</h4>
+          <p>Wadhwani Foundation</p>
+<p class="cert2__note">✎ Course taken on <b>Nov 18, 2024</b> · Certificate issued Nov 6, 2026</p>
+          <div class="cert2__foot"><span class="cert2__date">Nov 2026</span><span class="cert2__view">View ↗</span></div>
+        </div>
+      </article>
+
+      <article class="cert2 reveal" data-cat="tech">
+        <button class="cert2__img" data-cap="Developing Designs for User Interface" aria-label="View certificate: Developing Designs for User Interface">
+          <img src="assets/Certificate_of_Completion.jpg" alt="Developing Designs for User Interface certificate" loading="lazy">
+        </button>
+        <div class="cert2__body">
+          <span class="cert2__tag">Certificate of Completion</span>
+          <h4>Developing Designs for User Interface</h4>
+          <p>TESDA Online Program</p>
+          <div class="cert2__foot"><span class="cert2__date">Sep 2026</span><span class="cert2__view">View ↗</span></div>
+        </div>
+      </article>
+
+      <article class="cert2 reveal" data-cat="tech">
+        <button class="cert2__img" data-cap="Operating Systems Basics" aria-label="View certificate: Operating Systems Basics">
+          <img src="assets/Operating_Systems_Basics.jpg" alt="Operating Systems Basics certificate" loading="lazy">
+        </button>
+        <div class="cert2__body">
+          <span class="cert2__tag">Course Completion</span>
+          <h4>Operating Systems Basics</h4>
+          <p>Cisco Networking Academy</p>
+          <div class="cert2__foot"><span class="cert2__date">Feb 2026</span><span class="cert2__view">View ↗</span></div>
+        </div>
+      </article>
+
+      <article class="cert2 reveal" data-cat="skills">
+        <button class="cert2__img" data-cap="Events Management Services (NC III)" aria-label="View certificate: Events Management Services">
+          <img src="assets/NC_unlocked_page-0001.jpg" alt="Events Management Services certificate" loading="lazy">
+        </button>
+        <div class="cert2__body">
+          <span class="cert2__tag">National Certificate III</span>
+          <h4>Events Management Services</h4>
+          <p>TESDA</p>
+          <div class="cert2__foot"><span class="cert2__date">May 2024</span><span class="cert2__view">View ↗</span></div>
+        </div>
+      </article>
+
+      <article class="cert2 reveal" data-cat="skills">
+        <button class="cert2__img" data-cap="Food and Beverage Services (NC II)" aria-label="View certificate: Food and Beverage Services">
+          <img src="assets/WIFEYFBS.jpg" alt="Food and Beverage Services certificate" loading="lazy">
+        </button>
+        <div class="cert2__body">
+          <span class="cert2__tag">National Certificate II</span>
+          <h4>Food and Beverage Services</h4>
+          <p>TESDA</p>
+          <div class="cert2__foot"><span class="cert2__date">Aug 2023</span><span class="cert2__view">View ↗</span></div>
+        </div>
+      </article>
+
+      <article class="cert2 reveal" data-cat="skills">
+        <button class="cert2__img" data-cap="Bread and Pastry Production (NC II)" aria-label="View certificate: Bread and Pastry Production">
+          <img src="assets/NC2WIFEY.jpg" alt="Bread and Pastry Production certificate" loading="lazy">
+        </button>
+        <div class="cert2__body">
+          <span class="cert2__tag">National Certificate II</span>
+          <h4>Bread and Pastry Production</h4>
+          <p>TESDA</p>
+          <div class="cert2__foot"><span class="cert2__date">Feb 2023</span><span class="cert2__view">View ↗</span></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section section--dark contact" id="contact">
-  <div class="wrap">
-    <div class="section__head reveal">
-      <img class="contact__badge" src="assets/Mikrokosmos_Badge2.png" alt="" width="120" height="120" loading="lazy">
-      <p class="eyebrow">HOST: MOTOKO KUSANAGI</p>
-      <h2>Let's Work Together!</h2>
-      <p class="lead">Don't be afraid to reach out. You + Me = AWESOME! 🤩</p>
+        <!-- PORTFOLIO -->
+        <section class="section section--cream" id="portfolio">
+          <div class="wrap">
+            <div class="section__head reveal">
+              <p class="eyebrow eyebrow--dark">Portfolio</p>
+              <h2>Check Out My Work</h2>
+              <p class="lead">Selected academic projects and digital marketing campaigns.</p>
+            </div>
+
+            <div class="filters reveal" role="tablist">
+              <button class="filter is-active" data-filter="all">All</button>
+              <button class="filter" data-filter="software">Software</button>
+              <button class="filter" data-filter="design">Design</button>
+            </div>
+
+            <div class="grid" id="grid">
+              <!-- =================================================
+     PORTFOLIO: SIDE-BY-SIDE GRAPHICS & SYSTEMS
+     ================================================= -->
+<div class="portfolio-main-container">
+  
+  <!-- ==================== COLUMN 1: GRAPHICS DESIGN ACTIVITIES ==================== -->
+  <div class="portfolio-section-column graphics-col">
+    <h2 class="portfolio-column-title">Graphics Design Activities</h2>
+
+    <!-- Prelim -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 class="design-subheading" style="font-family: var(--display); font-size: 1.5rem; color: var(--orange); margin: 0 0 1.2rem 0; text-align: center;">Prelim</h3>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <h4 class="design-subgroup-title">Branding and Logo Design</h4>
+        <div class="grid design-card-grid-2">
+          <figure class="work" data-cat="design"><button data-full="assets/Mikrokosmos_Badge1.png" data-imgs="assets/Mikrokosmos_Badge1.png" data-cap="Badge" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/Mikrokosmos_Badge1.png" alt="Logo 1" loading="lazy"></button><figcaption>Badge</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/Mikrokosmos_Icon1.png" data-imgs="assets/Mikrokosmos_Icon1.png" data-cap="Icon" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/Mikrokosmos_Icon1.png" alt="Logo 2" loading="lazy"></button><figcaption>Icon</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/Mikrokosmos_Horizontal.png" data-imgs="assets/Mikrokosmos_Horizontal.png" data-cap="Horizontal" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/Mikrokosmos_Horizontal.png" alt="Logo 3" loading="lazy"></button><figcaption>Horizontal</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/Mikrokosmos_Vertical.png" data-imgs="assets/Mikrokosmos_Vertical.png" data-cap="Vertical" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/Mikrokosmos_Vertical.png" alt="Logo 4" loading="lazy"></button><figcaption>Vertical</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/MIKROKOSMOS Marcus Mood Board.pdf (1)_page-0001.jpg" data-imgs="assets/MIKROKOSMOS Marcus Mood Board.pdf (1)_page-0001.jpg" data-cap="MoodBoard" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/MIKROKOSMOS Marcus Mood Board.pdf (1)_page-0001.jpg" alt="Logo 4" loading="lazy"></button><figcaption>Mood Board</figcaption></figure>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="design-subgroup-title">Print Media Proposal</h4>
+        <div class="grid design-card-grid-2">
+          <figure class="work" data-cat="design"><button data-full="assets/Flyer_page-0001.jpg" data-imgs="assets/Flyer_page-0001.jpg" data-cap="Flyer" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/Flyer_page-0001.jpg" alt="Print 1" loading="lazy"></button><figcaption>Flyer</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/Poster_page-0001.jp" data-imgs="assets/Poster_page-0001.jp" data-cap="Poster" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/Poster_page-0001.jpg" alt="Print 3" loading="lazy"></button><figcaption>Poster</figcaption></figure>
+        </div>
+      </div>
     </div>
-    <div class="contact__grid">
-      <ul class="contact__list reveal">
-        <li><span>Email</span><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></li>
-        <li><span>GitHub</span><a href="#" rel="noopener">github.com/yourusername</a></li>
-        <li><span>LinkedIn</span><a href="#" rel="noopener">linkedin.com/in/yourusername</a></li>
-        <li><span>Location</span><b>Calamba City, Laguna, Philippines</b><small class="localtime" id="localTime"></small></li>
-      </ul>
-      <form class="form reveal" id="contactForm" novalidate>
-        <label>Your name<input type="text" name="name" required autocomplete="name"></label>
-        <label>Email<input type="email" name="email" required autocomplete="email"></label>
-        <label>What do you need?
-          <select name="topic">
-            <option>Software Development</option>
-            <option>UI/UX &amp; Graphic Design</option>
-            <option>Digital Marketing Visuals</option>
-            <option>Something else</option>
-          </select>
-        </label>
-        <label>Message<textarea name="message" rows="5" required></textarea></label>
-        <button type="submit" class="btn">Send message</button>
-        <p class="form__status" id="formStatus" role="status"></p>
-      </form>
+
+    <!-- Midterm -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 class="design-subheading" style="font-family: var(--display); font-size: 1.5rem; color: var(--orange); margin: 0 0 1.2rem 0; text-align: center;">Midterm</h3>
+      
+      <div style="margin-bottom: 1.2rem;"><h4 class="design-subgroup-title">Digital Marketing</h4>
+        <div class="grid design-card-grid-3">
+          <figure class="work" data-cat="design"><button data-full="assets/mid-1-1.png" data-imgs="assets/mid-1-1.png" data-cap="Line Art" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-1-1.png" alt="Mid 1-1" loading="lazy"></button><figcaption>Banner Ad</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/mid-1-2.png" data-imgs="assets/mid-1-2.png" data-cap="Coloring" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-1-2.png" alt="Mid 1-2" loading="lazy"></button><figcaption>Landing Page Banner</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/mid-1-3.png" data-imgs="assets/mid-1-3.png" data-cap="Render" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-1-3.png" alt="Mid 1-3" loading="lazy"></button><figcaption>News Letter Header</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/mid-1-3.png" data-imgs="assets/mid-1-3.png" data-cap="Render" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-1-3.png" alt="Mid 1-3" loading="lazy"></button><figcaption>Social Media Post</figcaption></figure>       
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.2rem;"><h4 class="design-subgroup-title">Typography</h4>
+        <div class="grid design-card-grid-3">
+          <figure class="work" data-cat="design"><button data-full="assets/mid-2-1.png" data-imgs="assets/mid-2-1.png" data-cap="Wireframes" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-2-1.png" alt="Mid 2-1" loading="lazy"></button><figcaption>Typography Brand Poster</figcaption></figure>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.2rem;"><h4 class="design-subgroup-title">Act 3: Social Media Campaign</h4>
+        <div class="grid design-card-grid-3">
+          <figure class="work" data-cat="design"><button data-full="assets/mid-3-1.png" data-imgs="assets/mid-3-1.png" data-cap="IG Post" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-3-1.png" alt="Mid 3-1" loading="lazy"></button><figcaption>IG Post</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/mid-3-2.png" data-imgs="assets/mid-3-2.png" data-cap="Story" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-3-2.png" alt="Mid 3-2" loading="lazy"></button><figcaption>Story</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/mid-3-3.png" data-imgs="assets/mid-3-3.png" data-cap="Ad Banner" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-3-3.png" alt="Mid 3-3" loading="lazy"></button><figcaption>Ad Banner</figcaption></figure>
+        </div>
+      </div>
+
+      <div><h4 class="design-subgroup-title">Act 4: Infographics</h4>
+        <div class="grid design-card-grid-3">
+          <figure class="work" data-cat="design"><button data-full="assets/mid-4-1.png" data-imgs="assets/mid-4-1.png" data-cap="Data Map" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-4-1.png" alt="Mid 4-1" loading="lazy"></button><figcaption>Data Map</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/mid-4-2.png" data-imgs="assets/mid-4-2.png" data-cap="Charts" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-4-2.png" alt="Mid 4-2" loading="lazy"></button><figcaption>Charts</figcaption></figure>
+          <figure class="work" data-cat="design"><button data-full="assets/mid-4-3.png" data-imgs="assets/mid-4-3.png" data-cap="Poster" data-stack="" data-desc="" data-features="" data-link=""><img src="assets/mid-4-3.png" alt="Mid 4-3" loading="lazy"></button><figcaption>Poster</figcaption></figure>
+        </div>
+      </div>
     </div>
+
+    <!-- Finals -->
+    <div>
+      <h3 class="design-subheading" style="font-family: var(--display); font-size: 1.5rem; color: var(--orange); margin: 0 0 1.2rem 0; text-align: center;">Finals</h3>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <h4 class="design-subgroup-title">Activity 1: Brand Campaign</h4>
+        <div class="grid design-single-card-container">
+          <figure class="work design-single-card-item" data-cat="design">
+            <button class="design-single-card-button" data-full="assets/finals-1.png" data-imgs="assets/finals-1.png" data-cap="Campaign Showcase" data-stack="" data-desc="" data-features="" data-link="">
+              <img src="assets/finals-1.png" alt="Finals Act 1" loading="lazy">
+            </button>
+            <figcaption>Campaign Showcase</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="design-subgroup-title">Activity 2: Multimedia Prototype</h4>
+        <div class="grid design-single-card-container">
+          <figure class="work design-single-card-item" data-cat="design">
+            <button class="design-single-card-button" data-full="assets/finals-2.png" data-imgs="assets/finals-2.png" data-cap="Prototype Showcase" data-stack="" data-desc="" data-features="" data-link="">
+              <img src="assets/finals-2.png" alt="Finals Act 2" loading="lazy">
+            </button>
+            <figcaption>Prototype Showcase</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
   </div>
-</section>
 
-</main>
 
-<footer class="footer">
-  <img src="assets/Mikrokosmos_Horizontal.png" alt="Mikrokosmos" width="220" height="220">
-  <p>&copy; <span id="year"></span> Kezzia Naomi A. Montaño. You never walk alone.</p>
-</footer>
+  <!-- ==================== COLUMN 2: SYSTEMS DEVELOPED ==================== -->
+  <div class="portfolio-section-column systems-col">
+    <h2 class="portfolio-column-title">Systems Developed</h2>
 
-<div class="lightbox" id="lightbox" hidden>
-  <button class="lightbox__close" id="lbClose" aria-label="Close">&times;</button>
-  <img id="lbImg" alt="">
-  <p id="lbCap"></p>
+    <!-- System 1 -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-family: var(--display); font-size: 1.5rem; color: var(--orange); margin: 0 0 1.2rem 0; text-align: center;">PC Builder Simulator</h3>
+      <div class="grid design-single-card-container">
+        <figure class="work design-single-card-item" data-cat="software">
+          <button class="design-single-card-button" data-full="assets/pc-builder.png" data-imgs="assets/pc-builder.png" data-cap="PC Builder: Desktop Application" data-stack="Python, PySide6, Rule-Based Algorithm" data-desc="Interactive computer assembly simulation software that validates hardware compatibility and evaluates system quality." data-features="Hardware compatibility checking|ISO/IEC 25010 quality evaluation|Interactive desktop UI" data-link="https://github.com/knmontano">
+            <img src="assets/pc-builder.png" alt="PC Builder Simulator" loading="lazy">
+          </button>
+          <figcaption>PC Builder Simulator</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- System 2 -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-family: var(--display); font-size: 1.5rem; color: var(--orange); margin: 0 0 1.2rem 0; text-align: center;">Brew Haven Digital Campaign</h3>
+      <div class="grid design-single-card-container">
+        <figure class="work design-single-card-item" data-cat="software">
+          <button class="design-single-card-button" data-full="assets/brewhaven.png" data-imgs="assets/brewhaven.png" data-cap="Brew Haven Interactive Web App" data-stack="HTML, CSS, JavaScript, GitHub Pages" data-desc="Seasonal coffee shop landing page and ordering interface featuring cozy aesthetics and responsive layout." data-features="Responsive web layout|Interactive menu showcase|Deployed via GitHub Pages" data-link="https://knmontano.github.io">
+            <img src="assets/brewhaven.png" alt="Brew Haven" loading="lazy">
+          </button>
+          <figcaption>Brew Haven Web App</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- System 3 -->
+    <div>
+      <h3 style="font-family: var(--display); font-size: 1.5rem; color: var(--orange); margin: 0 0 1.2rem 0; text-align: center;">Booking & Management System</h3>
+      <div class="grid design-single-card-container">
+        <figure class="work design-single-card-item" data-cat="software">
+          <button class="design-single-card-button" data-full="assets/booking.png" data-imgs="assets/booking.png" data-cap="Smart Booking & Library System" data-stack="PHP, OOP, SQL, XAMPP" data-desc="Relational database-backed web application for reservation handling, user accounts, and administrative oversight." data-features="Secure user authentication|Relational database integration|Admin dashboard controls" data-link="https://github.com/knmontano">
+            <img src="assets/booking.png" alt="Booking System" loading="lazy">
+          </button>
+          <figcaption>Booking System</figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+
 </div>
+            </div>
 
-<script src="js/main.js"></script>
-<script src="js/extras.js"></script>
-<script src="js/more.js"></script>
-<script src="js/about.js"></script>
+            <div class="mood reveal">
+              <h3 class="subhead">Mood Board</h3>
+              <p class="subhead__sub">The look and feel behind Mikrokosmos.</p>
+              <div class="mood__grid">
+                <img src="assets/mood-1.jpg" alt="Green code rain reference" loading="lazy">
+                <img src="assets/mood-2.jpg" alt="Developer desk with UI flow sketches" loading="lazy">
+                <img src="assets/mood-3.jpg" alt="Code editor on a dark screen" loading="lazy">
+                <img src="assets/hero-code.jpg" alt="Green holographic interface screens" loading="lazy">
+              </div>
+            </div>
+
+            <div class="palette reveal" aria-label="Brand colours">
+              <span style="--c:#f67c9e"><i></i>#f67c9e</span>
+              <span style="--c:#2d5a16"><i></i>#2d5a16</span>
+              <span style="--c:#fdab12"><i></i>#fdab12</span>
+              <span style="--c:#5547ac"><i></i>#5547ac</span>
+              <span style="--c:#d9d9d9"><i></i>#d9d9d9</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section section--dark contact" id="contact">
+          <div class="wrap">
+            <div class="section__head reveal">
+              <img class="contact__badge" src="assets/Mikrokosmos_Badge2.png" alt="" width="120" height="120"
+                loading="lazy">
+              <p class="eyebrow">HOST: MOTOKO KUSANAGI</p>
+              <h2>Let's Work Together!</h2>
+              <p class="lead">Don't be afraid to reach out. You + Me = AWESOME! 🤩</p>
+            </div>
+            <div class="contact__grid">
+              <ul class="contact__list reveal">
+                <li><span>Email</span><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></li>
+                <li><span>GitHub</span><a href="#" rel="noopener">github.com/yourusername</a></li>
+                <li><span>LinkedIn</span><a href="#" rel="noopener">linkedin.com/in/yourusername</a></li>
+                <li><span>Location</span><b>Calamba City, Laguna, Philippines</b><small class="localtime"
+                    id="localTime"></small></li>
+              </ul>
+              <form class="form reveal" id="contactForm" novalidate>
+                <label>Your name<input type="text" name="name" required autocomplete="name"></label>
+                <label>Email<input type="email" name="email" required autocomplete="email"></label>
+                <label>What do you need?
+                  <select name="topic">
+                    <option>Software Development</option>
+                    <option>UI/UX &amp; Graphic Design</option>
+                    <option>Digital Marketing Visuals</option>
+                    <option>Something else</option>
+                  </select>
+                </label>
+                <label>Message<textarea name="message" rows="5" required></textarea></label>
+                <button type="submit" class="btn">Send message</button>
+                <p class="form__status" id="formStatus" role="status"></p>
+              </form>
+            </div>
+          </div>
+        </section>
+
+  </main>
+
+  <footer class="footer">
+    <img src="assets/Mikrokosmos_Horizontal.png" alt="Mikrokosmos" width="220" height="220">
+    <p>&copy; <span id="year"></span> Kezzia Naomi A. Montaño. You never walk alone.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" id="lbClose" aria-label="Close">&times;</button>
+    <div class="lightbox__card" id="lbCard">
+      <div class="lightbox__media">
+        <img id="lbImg" alt="">
+      </div>
+      <div class="lightbox__info">
+        <span class="lightbox__cat" id="lbCat">Software</span>
+        <h3 id="lbCap"></h3>
+        <p class="lightbox__desc" id="lbDesc"></p>
+        <div class="lightbox__stack" id="lbStack"></div>
+        <div class="lightbox__actions">
+          <a id="lbLink" href="https://github.com/knmontano" target="_blank" rel="noopener" class="btn btn--small">View on GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/extras.js"></script>
+  <script src="js/more.js"></script>
+  <script src="js/about.js"></script>
+  <script src="js/cert.js"></script>
 </body>
+
 </html>

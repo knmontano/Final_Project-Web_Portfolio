@@ -96,4 +96,175 @@
     if (k === 't') window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     if (k === 'c') $('#contact').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   });
+
+  // JavaScript Logic para sa Skill Descriptions
+document.addEventListener('DOMContentLoaded', function() {
+  const buttons = document.querySelectorAll('.skill-btn');
+  const descText = document.getElementById('skillDescText');
+  const descBox = document.getElementById('skillDescBox');
+
+  // I-loop ang bawat button para malaman kung alin ang pinindot
+  buttons.forEach(btn => {
+    // Styling para magmukhang malinis na button chips
+    btn.style.background = 'transparent';
+    btn.style.border = 'none';
+    btn.style.color = 'inherit';
+    btn.style.font = 'inherit';
+    btn.style.cursor = 'pointer';
+    btn.style.padding = '0';
+
+    // Kapag pinindot ang button
+    btn.addEventListener('click', function() {
+      const description = this.getAttribute('data-desc');
+      
+      // Lagyan ng konting fade effect
+      descText.style.opacity = '0';
+      
+      setTimeout(() => {
+        descText.textContent = description;
+        descText.style.opacity = '1';
+        descBox.style.borderColor = '#f67c9e'; // Palitan ang kulay ng border kapag na-click
+      }, 150);
+    });
+  });
+});
+
+// JavaScript para sa Interactive Skill Descriptions
+document.addEventListener('DOMContentLoaded', function() {
+  const buttons = document.querySelectorAll('.skill-btn');
+  const descText = document.getElementById('skillDescText');
+  const descBox = document.getElementById('skillDescBox');
+
+  if (buttons.length > 0 && descText && descBox) {
+    buttons.forEach(btn => {
+      btn.style.background = 'transparent';
+      btn.style.border = 'none';
+      btn.style.color = 'inherit';
+      btn.style.font = 'inherit';
+      btn.style.cursor = 'pointer';
+      btn.style.padding = '0';
+
+      btn.addEventListener('click', function() {
+        const text = this.getAttribute('data-desc');
+        descText.style.opacity = '0';
+        setTimeout(() => {
+          descText.textContent = text;
+          descText.style.opacity = '1';
+          descBox.style.borderColor = '#f67c9e';
+        }, 150);
+      });
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const buttons = document.querySelectorAll('.skill-btn');
+  const descText = document.getElementById('skillDescText');
+
+  if (buttons.length > 0 && descText) {
+    buttons.forEach(btn => {
+      // Linisan ang default button styles para magmukhang chips
+      btn.style.background = 'transparent';
+      btn.style.border = 'none';
+      btn.style.color = 'inherit';
+      btn.style.font = 'inherit';
+      btn.style.cursor = 'pointer';
+      btn.style.padding = '0';
+
+      btn.addEventListener('click', function() {
+        const text = this.getAttribute('data-desc');
+        
+        // Mabilis na fade effect sa text lang
+        descText.style.opacity = '0';
+        setTimeout(() => {
+          descText.textContent = text;
+          descText.style.opacity = '1';
+        }, 100);
+      });
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const buttons = document.querySelectorAll('.skill-btn');
+
+  if (buttons.length > 0) {
+    buttons.forEach(btn => {
+      // Linisan ang default button styles para magmukhang chips
+      btn.style.background = 'transparent';
+      btn.style.border = '1px solid rgba(246,124,158,0.4)';
+      btn.style.borderRadius = '50px';
+      btn.style.color = '#e5efe0';
+      btn.style.font = 'inherit';
+      btn.style.cursor = 'pointer';
+      btn.style.padding = '6px 16px';
+      btn.style.transition = 'all 0.2s ease';
+
+      btn.addEventListener('click', function() {
+        // Alisin ang active class o kulay sa lahat muna
+        buttons.forEach(b => {
+          b.style.background = 'transparent';
+          b.style.borderColor = 'rgba(246,124,158,0.4)';
+          b.style.color = '#e5efe0';
+        });
+
+        // Lagyan ng kulay ang pinindot na button lang (Isang kulay sa isang pagkakataon)
+        this.style.background = '#f67c9e';
+        this.style.borderColor = '#f67c9e';
+        this.style.color = '#111';
+      });
+    });
+  }
+});
+
+
+
+
+  /* 12. never stay scrolled sideways: keeps the page centred */
+  function noSide() { if (window.scrollX) window.scrollTo(0, window.scrollY); }
+  window.addEventListener('scroll', noSide, { passive: true });
+  window.addEventListener('load', noSide);
+
+
+  /* 13. skills: badges, counts, filter tabs, tap-to-flip on touch */
+  (function () {
+    var layout = $('.skills-two-column-layout');
+    if (!layout) return;
+    var BADGE = { 'C': 'C', 'C++': 'C++', 'Java': 'JV', 'Python': 'PY', 'Dart': 'DT', 'PHP': 'PHP', 'JavaScript': 'JS', 'Assembly (ASM)': 'ASM',
+      'Canva': 'CV', 'Figma': 'FG', 'UI / UX Prototyping': 'UX', 'Promo Ads': 'AD', 'Social Media Kits': 'SM',
+      'Network Concepts': 'NET', 'TCP/IP & Routing': 'IP', 'LAN / WAN Setup': 'LAN', 'Databases & MySQL': 'SQL', 'System Integration': 'SYS',
+      'HTML5 / CSS3': '</>', 'Git & GitHub': 'GIT', 'VS Code': 'VS', 'XAMPP': 'XP' };
+    var touch = !window.matchMedia('(hover: hover)').matches, n = 0;
+    $$('.skill-card').forEach(function (card, i) {
+      var f = $('.card-front', card), name = f.textContent.trim();
+      f.innerHTML = '<span class="sk-badge">' + (BADGE[name] || name.slice(0, 2).toUpperCase()).replace(/</g, '&lt;') + '</span><span class="sk-name"></span>';
+      $('.sk-name', f).textContent = name;
+      card.style.setProperty('--i', i % 8);
+      card.tabIndex = 0;
+      function flip() { card.classList.toggle('is-flipped'); }
+      if (touch) card.addEventListener('click', flip);
+      card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+      n++;
+    });
+    var groups = $$('.skill-group', layout);
+    groups.forEach(function (g) {
+      var t = $('.skill-category-title', g), c = $$('.skill-card', g).length;
+      t.insertAdjacentHTML('beforeend', ' <small class="sk-count">' + c + '</small>');
+      var b = $('.skill-filter[data-skill="' + g.dataset.group + '"]');
+      if (b) b.insertAdjacentHTML('beforeend', ' <small>' + c + '</small>');
+    });
+    var all = $('.skill-filter[data-skill="all"]'); if (all) all.insertAdjacentHTML('beforeend', ' <small>' + n + '</small>');
+    var st = $('#skillStats');
+    if (st) st.innerHTML = '<span><b>' + groups.length + '</b> categories</span><span><b>' + n + '</b> skills &amp; tools</span>';
+    $$('.skill-filter').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.dataset.skill;
+        $$('.skill-filter').forEach(function (x) { var on = x === b; x.classList.toggle('is-active', on); x.setAttribute('aria-selected', on); });
+        groups.forEach(function (g) { g.classList.toggle('is-hidden', k !== 'all' && g.dataset.group !== k); });
+        layout.classList.toggle('is-single', k !== 'all');
+        $$('.skill-card.is-flipped').forEach(function (c) { c.classList.remove('is-flipped'); });
+      });
+    });
+  })();
+
 })();

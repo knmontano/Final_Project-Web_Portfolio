@@ -3,18 +3,19 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mascot = document.getElementById('mascotVideo');
 
-  /* About Me video: YouTube loads on click; pausing, ending or un-hovering
-     returns it to the unplayed state (poster + play badge) */
+  /* 1. Promo Video (YouTube API): Play on click, reset to poster + badge on pause, end, or mouseleave */
   var slot = document.getElementById('promoFrameSlot');
   var badge = document.getElementById('videoBadge');
+  var poster = document.getElementById('videoPoster');
   var box = document.getElementById('videoBox');
+
   if (slot && badge && box) {
     var player = null, apiReady = null, pauseTimer = null, playing = false;
 
     var loadApi = function () {
       if (apiReady) return apiReady;
       apiReady = new Promise(function (resolve) {
-        if (window.YT && YT.Player) return resolve();
+        if (window.YT && window.YT.Player) return resolve();
         var prev = window.onYouTubeIframeAPIReady;
         window.onYouTubeIframeAPIReady = function () { if (prev) prev(); resolve(); };
         var s = document.createElement('script');
@@ -30,30 +31,51 @@
       if (player && player.destroy) { try { player.destroy(); } catch (e) {} }
       player = null;
       slot.innerHTML = '';
-      var label = badge.querySelector('small'); if (label) label.textContent = 'Click to play';
-      badge.style.opacity = '1'; badge.style.pointerEvents = 'auto';
+      if (poster) poster.style.opacity = '1';
+      badge.style.opacity = '1';
+      badge.style.pointerEvents = 'auto';
     };
 
     var start = function () {
-      badge.style.opacity = '0'; badge.style.pointerEvents = 'none';
+      badge.style.opacity = '0';
+      badge.style.pointerEvents = 'none';
       if (player) return;
+
       var mount = document.createElement('div');
+      mount.style.width = '100%';
+      mount.style.height = '100%';
       slot.appendChild(mount);
+
       loadApi().then(function () {
         player = new YT.Player(mount, {
-          videoId: slot.dataset.yt,
-          host: 'https://www.youtube-nocookie.com',
-          playerVars: { autoplay: 1, rel: 0, playsinline: 1, modestbranding: 1 },
+          width: '100%',
+          height: '100%',
+          videoId: slot.dataset.yt || '4SBye4MU9kI',
+          playerVars: {
+            autoplay: 1,
+            rel: 0,
+            playsinline: 1,
+            modestbranding: 1,
+            origin: window.location.origin
+          },
           events: {
-            onReady: function (e) { e.target.playVideo(); },
+            onReady: function (e) {
+              e.target.playVideo();
+              setTimeout(function () {
+                if (poster) poster.style.opacity = '0';
+              }, 300);
+            },
             onStateChange: function (e) {
               clearTimeout(pauseTimer);
-              if (e.data === 1) playing = true;                       /* playing */
-              else if (e.data === 0) reset();                         /* ended   */
-              else if (e.data === 2 && playing) {                     /* paused (short delay ignores scrubbing) */
+              if (e.data === 1) { /* Playing */
+                playing = true;
+                if (poster) poster.style.opacity = '0';
+              } else if (e.data === 0) { /* Ended */
+                reset();
+              } else if (e.data === 2 && playing) { /* Paused */
                 pauseTimer = setTimeout(function () {
                   if (player && player.getPlayerState && player.getPlayerState() === 2) reset();
-                }, 350);
+                }, 250);
               }
             }
           }
@@ -66,7 +88,7 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); start(); }
     });
 
-    /* un-hover: reset, unless the video went fullscreen */
+    /* Kapag umalis ang mouse sa video box (un-hover), babalik sa unplayed mode */
     box.addEventListener('mouseleave', function () {
       setTimeout(function () {
         if (document.fullscreenElement || document.webkitFullscreenElement) return;
@@ -75,16 +97,52 @@
     });
   }
 
-  /* Mascot: only animate while on screen; respect reduced motion; hide if it can't load */
+  /* 2. Mascot seamless loop: dalawang video buffer na nagpapalitan para walang black flash */
   if (mascot) {
-    var box = mascot.closest('.mascot');
-    mascot.addEventListener('error', function () { if (box) box.style.display = 'none'; });
-    if (reduce) { mascot.removeAttribute('autoplay'); mascot.pause(); }
-    else if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (en) {
-        if (en[0].isIntersecting) { var p = mascot.play(); if (p && p.catch) p.catch(function () {}); }
-        else mascot.pause();
-      }, { threshold: 0.1 }).observe(mascot);
+    var mBox = mascot.closest('.mascot');
+    function hideMascot() {
+      if (mBox) mBox.style.display = 'none';
+      var st = document.querySelector('.about2__stage');
+      if (st) st.classList.add('no-mascot');
+    }
+    mascot.addEventListener('error', hideMascot);
+    if (mascot.error || mascot.networkState === 3) hideMascot();
+
+    if (mascot) {
+      var mBox = mascot.closest('.mascot');
+      function hideMascot() {
+        if (mBox) mBox.style.display = 'none';
+        var st = document.querySelector('.about2__stage');
+        if (st) st.classList.add('no-mascot');
+      }
+      mascot.addEventListener('error', hideMascot);
+      if (mascot.error || mascot.networkState === 3) hideMascot();
+  
+      if (reduce) {
+        mascot.removeAttribute('autoplay');
+        mascot.pause();
+      } else {
+        // High-precision loop reset to avoid browser decoder flash
+        function preciseLoop() {
+          if (mascot.duration && mascot.currentTime >= mascot.duration - 0.12) {
+            mascot.currentTime = 0;
+          }
+          requestAnimationFrame(preciseLoop);
+        }
+        requestAnimationFrame(preciseLoop);
+  
+        // Intersection Observer to pause when off-screen
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (en) {
+            if (en[0].isIntersecting) {
+              var p = mascot.play();
+              if (p && p.catch) p.catch(function () {});
+            } else {
+              mascot.pause();
+            }
+          }, { threshold: 0.1 }).observe(mascot);
+        }
+      }
     }
   }
 })();

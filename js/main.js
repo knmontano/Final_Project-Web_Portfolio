@@ -110,26 +110,76 @@
       filters.forEach(function (x) { x.classList.toggle('is-active', x === b); });
       var f = b.dataset.filter;
       works.forEach(function (w) { w.classList.toggle('is-hidden', f !== 'all' && w.dataset.cat !== f); });
+      /* show/hide the two big columns to match the filter */
+      var gCol = document.querySelector('.graphics-col'), sCol = document.querySelector('.systems-col'),
+          wrap = document.querySelector('.portfolio-main-container');
+      if (gCol) gCol.hidden = f === 'software';
+      if (sCol) sCol.hidden = f === 'design';
+      if (wrap) wrap.classList.toggle('is-single', f !== 'all');
     });
   });
 
-  /* lightbox */
-  var lb = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lbImg');
-  var lbCap = document.getElementById('lbCap');
-  function closeLb() { lb.hidden = true; document.body.style.overflow = ''; }
-  works.forEach(function (w) {
-    w.querySelector('button').addEventListener('click', function (e) {
-      var b = e.currentTarget;
-      lbImg.src = b.dataset.full;
-      lbImg.alt = b.dataset.cap;
-      lbCap.textContent = b.dataset.cap;
-      lb.hidden = false;
-      document.body.style.overflow = 'hidden';
-      document.getElementById('lbClose').focus();
-    });
+/* lightbox: design pieces = big image + caption; systems = image + details */
+var lb = document.getElementById('lightbox');
+var lbCard = document.getElementById('lbCard');
+var lbMedia = lbCard.querySelector('.lightbox__media');
+var lbImg = document.getElementById('lbImg');
+var lbCap = document.getElementById('lbCap');
+var lbCat = document.getElementById('lbCat');
+var lbDesc = document.getElementById('lbDesc');
+var lbStack = document.getElementById('lbStack');
+var lbLink = document.getElementById('lbLink');
+
+window.currentGalleryImages = [];
+window.currentGalleryIndex = 0;
+
+lbImg.addEventListener('error', function () {
+  lbMedia.classList.add('is-broken');
+  lbMedia.setAttribute('data-missing', 'Image not found: ' + (lbImg.getAttribute('src') || ''));
+});
+lbImg.addEventListener('load', function () { lbMedia.classList.remove('is-broken'); });
+
+window.renderPortfolioLightbox = function (b) {
+  var work = b.closest('.work');
+  var cat = work ? (work.dataset.cat || 'project') : 'project';
+  var isDesign = cat === 'design';
+
+  lbCard.classList.toggle('is-design', isDesign);
+  lbCap.textContent = b.dataset.cap || '';
+
+  if (lbCat) lbCat.textContent = isDesign ? 'Design' : 'Software';
+  if (lbDesc) lbDesc.textContent = b.dataset.desc || '';
+  if (lbStack) {
+    lbStack.innerHTML = (b.dataset.stack || '').split(',')
+      .map(function (s) { return s.trim(); }).filter(Boolean)
+      .map(function (s) { return '<span>' + s + '</span>'; }).join('');
+  }
+  if (lbLink) {
+    var url = (b.dataset.link || '').trim();
+    lbLink.style.display = url ? 'inline-block' : 'none';
+    if (url) lbLink.href = url;
+  }
+
+  var raw = b.dataset.imgs || b.dataset.full || '';
+  window.currentGalleryImages = raw.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  window.currentGalleryIndex = 0;
+  lbMedia.classList.remove('is-broken');
+  lbImg.alt = b.dataset.cap || '';
+  if (window.currentGalleryImages.length) lbImg.src = window.currentGalleryImages[0];
+};
+
+function closeLb() { lb.hidden = true; document.body.style.overflow = ''; }
+works.forEach(function (w) {
+  w.querySelector('button').addEventListener('click', function (e) {
+    window.renderPortfolioLightbox(e.currentTarget);
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbClose').focus();
   });
-  lb.addEventListener('click', function (e) { if (e.target !== lbImg) closeLb(); });
+});
+  lb.addEventListener('click', function (e) {
+    if (e.target === lb || e.target.id === 'lbClose') closeLb();
+  });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) closeLb(); });
 
   /* contact form -> opens the visitor's mail app (no backend needed) */

@@ -38,7 +38,7 @@
 
   /* 3. 3D tilt on cards + hero icon parallax */
   if (fine && !reduce) {
-    document.querySelectorAll('.ad, .cert, .work').forEach(function (c) {
+    document.querySelectorAll('.ad, .cert, .work, .service-card').forEach(function (c) {
       c.addEventListener('mousemove', function (e) {
         var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
         c.style.transform = 'perspective(700px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg) translateY(-6px)';
@@ -63,7 +63,13 @@
   function show(i) {
     var list = visibleBtns(); if (!list.length) return;
     cur = (i + list.length) % list.length;
-    lbImg.src = list[cur].dataset.full; lbImg.alt = list[cur].dataset.cap; lbCap.textContent = list[cur].dataset.cap + '  (' + (cur + 1) + '/' + list.length + ')';
+    if (window.renderPortfolioLightbox) {
+      window.renderPortfolioLightbox(list[cur], '  (' + (cur + 1) + '/' + list.length + ')');
+    } else {
+      lbImg.src = list[cur].dataset.full;
+      lbImg.alt = list[cur].dataset.cap;
+      lbCap.textContent = list[cur].dataset.cap + '  (' + (cur + 1) + '/' + list.length + ')';
+    }
   }
   document.querySelectorAll('.work button').forEach(function (b) {
     b.addEventListener('click', function () { setTimeout(function () { show(visibleBtns().indexOf(b)); }, 0); });
