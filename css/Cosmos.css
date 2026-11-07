@@ -1,0 +1,51 @@
+/* ============ COSMOS LAYER: extra personality for Mikrokosmos ============ */
+::selection{background:var(--pink);color:var(--ink)}
+html{scrollbar-color:var(--pink) #0f1f0a;scrollbar-width:thin}
+::-webkit-scrollbar{width:11px}::-webkit-scrollbar-track{background:#0f1f0a}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--orange));border-radius:9px;border:2px solid #0f1f0a}
+
+/* constellation canvas */
+.cosmos-bg{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.55}
+
+/* boot screen */
+.boot{position:fixed;inset:0;z-index:9999;background:#08140a;color:var(--neon);display:grid;place-content:center;font:400 .8rem/2.2 'Press Start 2P',monospace;padding:1.5rem;cursor:pointer;transition:opacity .6s,visibility .6s}
+.boot.is-out{opacity:0;visibility:hidden}
+.boot::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 2px,transparent 2px 4px);pointer-events:none}
+.boot b{color:var(--orange);font-weight:400}
+.boot__bar{margin-top:1.2rem;height:12px;width:min(320px,80vw);border:2px solid var(--neon);padding:2px}
+.boot__bar i{display:block;height:100%;width:0;background:var(--pink);transition:width 1.6s steps(16)}
+.boot small{display:block;margin-top:1rem;color:#7aa86a;font-size:.5rem}
+
+/* numbered section labels */
+.eyebrow[data-n]::before{content:attr(data-n) "  ✦  ";color:var(--orange);font-family:'Press Start 2P',monospace;font-size:.7em;letter-spacing:.05em}
+/* skill ticker */
+.ticker{overflow:hidden;background:var(--ink);border-block:3px solid var(--pink);padding:.7rem 0;position:relative;z-index:2}
+.ticker__track{display:flex;gap:2.2rem;width:max-content;font:400 .75rem/1 'Press Start 2P',monospace;color:var(--neon);text-transform:uppercase;white-space:nowrap}
+.ticker__track span:nth-child(3n+2){color:var(--pink)}.ticker__track span:nth-child(3n){color:var(--orange)}
+@media (prefers-reduced-motion:no-preference){.ticker__track{animation:tick 38s linear infinite}.ticker:hover .ticker__track{animation-play-state:paused}}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ============ SKILLS: arcade "unlocked" inventory ============ */
+.skill-stats span{font:400 .65rem/1.6 'Press Start 2P',monospace;letter-spacing:.04em;text-transform:uppercase;color:#cfe3c5;background:#08140a;border:2px solid var(--neon);border-radius:4px;box-shadow:3px 3px 0 var(--pink);padding:.7rem 1rem}
+.skill-stats span b{color:var(--orange);font-weight:400;font-size:1.05em;margin-right:.3rem}
+.skill-filter{font-family:'Press Start 2P',monospace;font-size:.6rem;letter-spacing:.04em;text-transform:uppercase;border-radius:4px;padding:.75rem 1rem}
+.skill-filter.is-active{box-shadow:3px 3px 0 var(--orange)}
+
+.skills-two-column-layout .skill-group{border-radius:8px;border:2px solid var(--ac);box-shadow:5px 5px 0 color-mix(in srgb,var(--ac) 55%,#000);padding-bottom:2.1rem}
+.skills-two-column-layout .skill-group::before{content:"CLASS \25B8  " attr(data-group);position:absolute;right:14px;bottom:9px;font:400 .5rem/1 'Press Start 2P',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ac);opacity:.85}
+.skills-two-column-layout .skill-category-title{font-family:'Press Start 2P',monospace;font-size:.95rem;letter-spacing:.04em}
+.skills-two-column-layout .skill-category-title::before{border-radius:4px;box-shadow:2px 2px 0 rgba(0,0,0,.6)}
+
+.skills-two-column-layout .skill-group .card-front,.skills-two-column-layout .skill-group .card-back{border-radius:6px}
+.skills-two-column-layout .skill-group .card-front{border:2px solid color-mix(in srgb,var(--ac) 60%,transparent);border-top:2px solid var(--ac);box-shadow:3px 3px 0 rgba(0,0,0,.45)}
+.skills-two-column-layout .skill-group .skill-card:hover .card-front,
+.skills-two-column-layout .skill-group .skill-card:hover .card-back{box-shadow:5px 5px 0 var(--ac)}
+.skill-card{transition:translate .15s}
+.skill-card:hover{translate:-2px -3px}
+.sk-badge{border-radius:4px;box-shadow:2px 2px 0 rgba(0,0,0,.55);border:2px solid #111}
+.skill-card.is-picked .sk-badge{background:var(--neon)}
+@media (prefers-reduced-motion:no-preference){
+  .sk-badge{animation:skBob 3s ease-in-out infinite;animation-delay:calc(var(--i,0) * -.35s)}
+  .skill-card:hover .sk-badge{animation-play-state:paused}
+}
+@keyframes skBob{50%{translate:0 -3px}}

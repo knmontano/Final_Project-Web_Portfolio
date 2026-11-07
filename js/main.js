@@ -139,7 +139,16 @@ lbImg.addEventListener('error', function () {
 });
 lbImg.addEventListener('load', function () { lbMedia.classList.remove('is-broken'); });
 
+function clearGame() {
+  var g = lbMedia.querySelector('.lb-game'), pb = lbMedia.querySelector('.lb-play'), ld = lbMedia.querySelector('.lb-loading');
+  if (g) g.remove();
+  if (ld) ld.remove();
+  if (pb) pb.remove();
+  lbCard.classList.remove('is-playing');
+}
+
 window.renderPortfolioLightbox = function (b) {
+  clearGame();
   var work = b.closest('.work');
   var cat = work ? (work.dataset.cat || 'project') : 'project';
   var isDesign = cat === 'design';
@@ -147,7 +156,7 @@ window.renderPortfolioLightbox = function (b) {
   lbCard.classList.toggle('is-design', isDesign);
   lbCap.textContent = b.dataset.cap || '';
 
-  if (lbCat) lbCat.textContent = isDesign ? 'Design' : 'Software';
+  if (lbCat) lbCat.textContent = isDesign ? 'Design' : (work && work.dataset.kind === 'game' ? 'Game' : 'Software');
   if (lbDesc) lbDesc.textContent = b.dataset.desc || '';
   if (lbStack) {
     lbStack.innerHTML = (b.dataset.stack || '').split(',')
@@ -160,6 +169,35 @@ window.renderPortfolioLightbox = function (b) {
     if (url) lbLink.href = url;
   }
 
+  /* playable games: show a Play button that loads the game inside the lightbox */
+  var play = (b.dataset.play || '').trim();
+  lbCard.classList.toggle('is-game', !!play);
+  if (lbLink) lbLink.textContent = play ? 'Open full screen \u2197' : 'View on GitHub \u2197';
+  if (play) {
+    var pb = document.createElement('button');
+    pb.type = 'button';
+    pb.className = 'lb-play';
+    pb.innerHTML = '<span>\u25B6</span> PRESS START';
+    pb.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var f = document.createElement('iframe');
+      f.className = 'lb-game';
+      f.src = play;
+      f.title = (b.dataset.cap || 'Game') + ' (playable)';
+      f.setAttribute('allow', 'fullscreen; autoplay; gamepad; accelerometer; gyroscope; clipboard-write');
+      f.setAttribute('allowfullscreen', '');
+      var ld = document.createElement('div');
+      ld.className = 'lb-loading';
+      ld.textContent = 'LOADING...';
+      f.addEventListener('load', function () { ld.remove(); });
+      lbMedia.appendChild(f);
+      lbMedia.appendChild(ld);
+      lbCard.classList.add('is-playing');
+      f.focus();
+    });
+    lbMedia.appendChild(pb);
+  }
+
   var raw = b.dataset.imgs || b.dataset.full || '';
   window.currentGalleryImages = raw.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
   window.currentGalleryIndex = 0;
@@ -168,7 +206,7 @@ window.renderPortfolioLightbox = function (b) {
   if (window.currentGalleryImages.length) lbImg.src = window.currentGalleryImages[0];
 };
 
-function closeLb() { lb.hidden = true; document.body.style.overflow = ''; }
+function closeLb() { clearGame(); lb.hidden = true; document.body.style.overflow = ''; }
 works.forEach(function (w) {
   w.querySelector('button').addEventListener('click', function (e) {
     window.renderPortfolioLightbox(e.currentTarget);
