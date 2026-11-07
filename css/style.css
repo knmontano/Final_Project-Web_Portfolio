@@ -1352,3 +1352,4 @@ html,body{max-width:100%;overflow-x:clip}
   .work[data-kind="game"]::after{animation:arcadeBlink 1.4s steps(2,jump-none) infinite}
 }
 @keyframes arcadeBlink{50%{opacity:.55}}
+
