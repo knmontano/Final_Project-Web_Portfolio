@@ -76,28 +76,7 @@
     if (nums.length === 2) st.innerHTML = '<span><b>' + nums[1].textContent + '</b> skills unlocked \u2726</span><span><b>' + nums[0].textContent + '</b> classes</span>';
   }
 
-  /* 8. achievements: pixel toasts + explored counter as you scroll */
-  var ach = [['home', 'Welcome, traveler'], ['about', 'Met Kezzia'], ['services', 'Checked the services'], ['skills', 'Inspected the toolbox'], ['certifications', 'Viewed the certificates'], ['portfolio', 'Browsed the portfolio'], ['contact', 'Reached the contact desk']];
-  var got = {}, count = 0, queue = [], showing = false;
-  var hud = mk('div', 'hud', ''), tz = mk('div', 'ach', '');
-  document.body.appendChild(hud); document.body.appendChild(tz);
-  function hudUp() { hud.innerHTML = '\u2726 EXPLORED <b>' + count + '/' + ach.length + '</b>'; }
-  hudUp();
-  function next() {
-    if (showing || !queue.length) return;
-    showing = true; tz.innerHTML = '<small>\uD83C\uDFC6 ACHIEVEMENT UNLOCKED</small>' + queue.shift(); tz.classList.add('show');
-    setTimeout(function () { tz.classList.remove('show'); setTimeout(function () { showing = false; next(); }, 450); }, 2600);
-  }
-  var aio = new IntersectionObserver(function (es) {
-    es.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var id = e.target.id; if (got[id]) return; got[id] = 1; count++; hudUp();
-      var t = ach.filter(function (x) { return x[0] === id; })[0][1];
-      queue.push(t); if (count === ach.length) queue.push('100% explored \u2726 You never walk alone'); next();
-    });
-  }, { threshold: 0.3 });
-  ach.forEach(function (x) { var s = document.getElementById(x[0]); if (s) aio.observe(s); });
-
+ 
   /* 9. heading decode effect when a section title scrolls in */
   if (!reduce) {
     var hio = new IntersectionObserver(function (es) {
