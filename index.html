@@ -104,14 +104,9 @@
                 <img class="vwin__poster" id="videoPoster" src="assets/mood-2.jpg" alt="" loading="lazy"
                   style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; transition: opacity 0.35s ease; pointer-events: none;">
 
-               <!-- YouTube Direct Embed -->
-               <!-- YouTube Direct Embed -->
-<iframe src="https://www.youtube.com/embed/4SBye4MU9kI?autoplay=1&mute=1&loop=1&playlist=4SBye4MU9kI&rel=0&modestbranding=1" 
-  title="3CS5_Montaño_KezziaNaomi_PromoVideo"
-  style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 1;"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
+                <!-- YouTube player mounts here (about.js) -->
+    <div id="promoFrameSlot" data-yt="4SBye4MU9kI"
+    style="position:absolute; inset:0; width:100%; height:100%; z-index:1; background:#000;"></div>
 
                 <!-- Click-to-play badge -->
                 <div id="videoBadge" class="video__badge" role="button" tabindex="0" aria-label="Play ads video"
@@ -789,6 +784,42 @@
   <script src="js/about.js"></script>
   <script src="js/cert.js"></script>
   <script src="js/Cosmos.js"></script>
+  <script>
+  /* YouTube click-to-play: self-contained, no dependency on js/about.js */
+  (function () {
+    var box = document.getElementById('videoBox');
+    var slot = document.getElementById('promoFrameSlot');
+    var poster = document.getElementById('videoPoster');
+    var old = document.getElementById('videoBadge');
+    if (!box || !slot || !old) return;
+
+    var badge = old.cloneNode(true);          /* removes any listener from about.js */
+    old.parentNode.replaceChild(badge, old);
+
+    function play() {
+      badge.style.opacity = '0';
+      badge.style.pointerEvents = 'none';
+      slot.innerHTML =
+        '<iframe src="https://www.youtube.com/embed/' + (slot.dataset.yt || '4SBye4MU9kI') +
+        '?autoplay=1&rel=0&playsinline=1&modestbranding=1" title="Promo video" ' +
+        'style="position:absolute;inset:0;width:100%;height:100%;border:0" ' +
+        'allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      if (poster) poster.style.opacity = '0';
+    }
+    function reset() {
+      if (document.fullscreenElement || document.webkitFullscreenElement) return;
+      slot.innerHTML = '';
+      if (poster) poster.style.opacity = '1';
+      badge.style.opacity = '1';
+      badge.style.pointerEvents = 'auto';
+    }
+    badge.addEventListener('click', play);
+    badge.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+    box.addEventListener('mouseleave', reset);
+  })();
+  </script>
 </body>
 
 </html>
