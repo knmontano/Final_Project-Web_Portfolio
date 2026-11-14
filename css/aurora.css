@@ -1,0 +1,314 @@
+/* =====================================================================
+   AURORA: soft glass + gradient glow for Certificates, Portfolio,
+   Contact and Footer. Loaded after Cosmos.css. Delete the <link> to undo.
+   ===================================================================== */
+   :root{--ring:linear-gradient(135deg,#f67c9e,#fdab12 45%,#8d7bff)}
+
+   /* ---------- aurora backgrounds (soft light blobs that slowly drift) ---------- */
+   #certifications,#portfolio,#contact{position:relative;overflow:hidden;isolation:isolate}
+   #certifications{background:#fffdfb}
+   #portfolio{background:#f7f1e8}
+   #contact{background:#0d1a0a}
+   #certifications::before,#portfolio::before,#contact::before{
+     content:"";position:absolute;inset:-25%;z-index:-1;pointer-events:none;
+     -webkit-mask-image:none;mask-image:none;
+     background:
+       radial-gradient(34% 30% at 12% 18%,rgba(246,124,158,.30),transparent 70%),
+       radial-gradient(30% 28% at 88% 14%,rgba(141,123,255,.28),transparent 70%),
+       radial-gradient(36% 30% at 70% 86%,rgba(253,171,18,.24),transparent 70%),
+       radial-gradient(28% 26% at 18% 82%,rgba(109,255,42,.14),transparent 70%);
+     animation:auroraDrift 22s ease-in-out infinite alternate;will-change:transform}
+   #contact::before{
+     background:
+       radial-gradient(34% 30% at 10% 16%,rgba(246,124,158,.30),transparent 70%),
+       radial-gradient(34% 32% at 90% 80%,rgba(141,123,255,.38),transparent 70%),
+       radial-gradient(28% 26% at 60% 8%,rgba(253,171,18,.16),transparent 70%),
+       radial-gradient(26% 24% at 20% 90%,rgba(109,255,42,.12),transparent 70%)}
+   /* a fine star-dust layer on top of the glow */
+   #certifications::after,#portfolio::after,#contact::after{
+     content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+     background-image:radial-gradient(rgba(85,71,172,.20) 1px,transparent 1.4px),radial-gradient(rgba(246,124,158,.22) 1px,transparent 1.4px);
+     background-size:46px 46px,71px 71px;background-position:0 0,23px 31px;
+     -webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);mask-image:linear-gradient(180deg,#000,transparent 70%)}
+   #contact::after{background-image:radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.4px),radial-gradient(rgba(253,171,18,.35) 1px,transparent 1.4px)}
+   @keyframes auroraDrift{
+     0%{transform:translate3d(-3%,-2%,0) rotate(0deg) scale(1)}
+     100%{transform:translate3d(3%,3%,0) rotate(6deg) scale(1.08)}}
+   
+   /* ---------- headings: glowing gradient text + light-line ornament ---------- */
+   #certifications .section__head h2,#portfolio .section__head h2,#contact .section__head h2{
+     background:linear-gradient(100deg,#2d5a16 0%,#5547ac 45%,#f67c9e 75%,#fdab12 100%);background-size:220% auto;
+     -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+     animation:auroraText 9s ease-in-out infinite alternate}
+   #contact .section__head h2{background-image:linear-gradient(100deg,#fff 0%,#ffd3e0 40%,#fdab12 75%,#8d7bff 100%)}
+   @keyframes auroraText{to{background-position:100% 0}}
+   #certifications .section__head h2::after,#portfolio .section__head h2::after,#contact .section__head h2::after{
+     width:min(240px,60%);height:3px;margin:1rem auto 0;border-radius:3px;
+     background:linear-gradient(90deg,transparent,#f67c9e,#fdab12,#8d7bff,transparent);
+     box-shadow:0 0 16px rgba(246,124,158,.8)}
+   
+   /* eyebrow becomes a frosted pill */
+   #certifications .eyebrow,#portfolio .eyebrow,#contact .eyebrow{
+     display:inline-flex;align-items:center;padding:.4rem 1.2rem;border-radius:999px;margin-bottom:1rem;
+     background:rgba(255,255,255,.6);border:1px solid rgba(246,124,158,.4);
+     -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 22px rgba(246,124,158,.2)}
+   #certifications .eyebrow::before,#certifications .eyebrow::after,
+   #portfolio .eyebrow::before,#portfolio .eyebrow::after,
+   #contact .eyebrow::before,#contact .eyebrow::after{margin:0 .5em}
+   #contact .eyebrow{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2);color:#fdab12}
+   
+   /* ---------- filter bars + stat pills: frosted glass ---------- */
+   .filters,.cfilters{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9);
+     -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+     box-shadow:0 14px 36px rgba(85,71,172,.16),inset 0 1px 0 #fff}
+   .filter.is-active,.cfilter.is-active{background:linear-gradient(135deg,#f67c9e,#8d7bff);
+     box-shadow:0 8px 22px rgba(141,123,255,.45)}
+   .filter:hover,.cfilter:hover{background:rgba(141,123,255,.12)}
+   .cstats span{background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.9);border-radius:999px;
+     -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 6px 18px rgba(85,71,172,.12)}
+   .cstats b{background:linear-gradient(135deg,#f67c9e,#8d7bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+   
+   /* ---------- glass cards (certificates + portfolio works + form) ---------- */
+   .cert2,.work{background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.95);
+     box-shadow:0 12px 34px rgba(85,71,172,.12),0 2px 6px rgba(15,31,10,.05)}
+   .cert2:hover,.work:hover{border-color:rgba(255,255,255,.95);box-shadow:0 26px 56px rgba(246,124,158,.30),0 4px 12px rgba(85,71,172,.12)}
+   /* gradient ring that lights up on hover */
+   .cert2::before,.work::after,.form::before{
+     content:"";position:absolute;inset:0;border-radius:inherit;padding:1.6px;background:var(--ring);
+     -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+     mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;
+     opacity:.28;transition:opacity .35s;pointer-events:none;z-index:4}
+   .cert2:hover::before,.work:hover::after,.form:hover::before{opacity:1}
+   /* soft spotlight that follows the pointer (position set by aurora.js) */
+   .cert2::after,.work button::before,.form::after{
+     content:"";position:absolute;inset:0;pointer-events:none;z-index:3;border-radius:inherit;opacity:0;transition:opacity .35s;
+     background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(246,124,158,.20),rgba(141,123,255,.10) 45%,transparent 70%)}
+   .cert2:hover::after,.work:hover button::before,.form:hover::after{opacity:1}
+   
+   .cert2__body{border-top:1px solid rgba(246,124,158,.25);background:linear-gradient(180deg,rgba(255,255,255,0),rgba(246,124,158,.07))}
+   .cert2__tag{background:linear-gradient(135deg,#5547ac,#8d7bff);box-shadow:0 4px 12px rgba(85,71,172,.35)}
+   .cert2__new{background:linear-gradient(135deg,#fdab12,#f67c9e);box-shadow:0 4px 12px rgba(253,171,18,.4)}
+   .cert2__date{background:linear-gradient(135deg,#f67c9e,#fdab12);-webkit-background-clip:text;background-clip:text;color:transparent}
+   
+   .work button{background:linear-gradient(160deg,#ffffff,#fdf2f6 55%,#efeaff)}
+   .work::before{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 4px 12px rgba(85,71,172,.3)}
+   .work figcaption{border-top:1px solid rgba(246,124,158,.25);background:linear-gradient(180deg,rgba(255,255,255,0),rgba(141,123,255,.08));text-align:center}
+   .work figcaption::before{content:"✦";margin-right:.5em;color:var(--pink);font-size:.8em}
+   .work{border:1px solid rgba(255,255,255,.95)}
+   .work:hover{border-color:transparent}
+   
+   /* ---------- portfolio: the two big columns become glass panels ---------- */
+   .portfolio-section-column{background:rgba(255,255,255,.45) !important;border:1px solid rgba(255,255,255,.9) !important;
+     border-radius:30px !important;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+     box-shadow:0 26px 70px rgba(85,71,172,.14),inset 0 1px 0 #fff !important}
+   .portfolio-section-column.graphics-col{box-shadow:0 26px 70px rgba(246,124,158,.18),inset 0 1px 0 #fff !important}
+   .portfolio-section-column.systems-col{box-shadow:0 26px 70px rgba(141,123,255,.22),inset 0 1px 0 #fff !important}
+   .portfolio-column-title{background:linear-gradient(100deg,#f67c9e,#fdab12) !important;-webkit-background-clip:text !important;background-clip:text !important;
+     color:transparent !important;-webkit-text-fill-color:transparent;position:relative;padding-bottom:1.1rem;margin-bottom:2rem !important}
+   .systems-col .portfolio-column-title{background:linear-gradient(100deg,#5547ac,#f67c9e) !important;-webkit-background-clip:text !important;background-clip:text !important}
+   .portfolio-column-title::after{content:"";position:absolute;left:50%;bottom:0;width:90px;height:3px;translate:-50% 0;border-radius:3px;
+     background:linear-gradient(90deg,transparent,#f67c9e,#fdab12,transparent);box-shadow:0 0 14px rgba(246,124,158,.7)}
+   .systems-col .portfolio-column-title::after{background:linear-gradient(90deg,transparent,#5547ac,#8d7bff,transparent);box-shadow:0 0 14px rgba(141,123,255,.7)}
+   
+   /* ---------- mood board: 4 polaroid-style tilted cards ---------- */
+   .mood {
+    margin-top: 3.5rem;
+    padding: 0;
+    background: transparent !important;
+    border: 0 !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    text-align: center;
+  }
+
+  #portfolio .mood .subhead {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: #2d5a16 !important;
+    -webkit-text-fill-color: #2d5a16 !important;
+    background: none !important;
+    margin: 0 auto 0.35rem !important;
+  }
+
+  .mood .subhead__sub {
+    color: #4a5546;
+    font-size: 1rem;
+    margin: 0 auto 2.2rem !important;
+  }
+
+  .mood__grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-auto-rows: auto !important;
+    gap: 1.5rem !important;
+    max-width: 1020px;
+    margin: 0 auto;
+  }
+
+  .mood__grid > img,
+  .mood__grid > figure {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    width: 100% !important;
+    aspect-ratio: 1 / 1.05 !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border: 6px solid #ffffff !important;
+    border-radius: 22px !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14) !important;
+    transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+    background: #0f1f0a;
+    margin: 0 !important;
+  }
+
+  /* Banayad na polaroid tilt gaya ng nasa screenshot */
+  .mood__grid > :nth-child(1) { transform: rotate(-2deg) !important; }
+  .mood__grid > :nth-child(2) { transform: rotate(1.2deg) !important; }
+  .mood__grid > :nth-child(3) { transform: rotate(-1.5deg) !important; }
+  .mood__grid > :nth-child(4) { transform: rotate(2deg) !important; }
+
+  .mood__grid > *:hover {
+    transform: rotate(0deg) translateY(-6px) scale(1.03) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22) !important;
+    z-index: 2;
+  }
+
+  @media (max-width: 820px) {
+    .mood__grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mood__grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* ---------- palette: white pill badges with circular colour dots ---------- */
+  .palette {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    max-width: 100% !important;
+    margin: 2.5rem auto 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .palette span {
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.65rem !important;
+    height: auto !important;
+    padding: 0.55rem 1.15rem 0.55rem 0.65rem !important;
+    background: #ffffff !important;
+    color: #1b2416 !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+    font-family: 'DM Sans', monospace, sans-serif !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  }
+
+  .palette span:hover,
+  .palette span:focus-visible {
+    flex: 0 0 auto !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14) !important;
+  }
+
+  .palette span::before,
+  .palette span::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .palette i {
+    display: inline-block !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    background: var(--c) !important;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+    flex-shrink: 0;
+  }
+   
+   /* palette: one swatch strip, click a colour to copy its code */
+   .palette{display:flex;gap:0;max-width:780px;margin:2.6rem auto 0;border-radius:26px;overflow:hidden;box-shadow:0 18px 44px rgba(85,71,172,.2)}
+   .palette span{flex:1;position:relative;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:.1rem;height:118px;padding:.9rem 1rem;border:0;border-radius:0;
+     background:var(--c);color:#fff;font-family:var(--display);font-size:1.05rem;letter-spacing:.1em;cursor:pointer;transition:flex .45s cubic-bezier(.3,.8,.3,1);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+   .palette span:hover,.palette span:focus-visible{flex:1.7;transform:none;outline:none}
+   .palette i{display:none}
+   .palette span::before{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+   .palette span:nth-child(1)::before{content:"Blossom"}.palette span:nth-child(2)::before{content:"Forest"}.palette span:nth-child(3)::before{content:"Marigold"}
+   .palette span:nth-child(4)::before{content:"Violet"}.palette span:nth-child(5)::before{content:"Mist"}
+   .palette span:nth-child(1),.palette span:nth-child(3),.palette span:nth-child(5){color:#1b2416}
+   .palette span::after{content:"copy";position:absolute;top:.8rem;right:.9rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;opacity:0;transition:opacity .3s}
+   .palette span:hover::after{opacity:.8}
+   @media (max-width:560px){.palette{flex-wrap:wrap}.palette span{flex:1 1 33%;height:90px}.palette span:hover{flex:1 1 33%}}
+   
+   /* ---------- contact ---------- */
+   .contact__list li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:20px;margin-bottom:.9rem;
+     padding:1rem 1.2rem 1rem 4.8rem;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+     box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s,border-color .3s,box-shadow .3s}
+   .contact__list li:hover{transform:translateX(8px);border-color:rgba(246,124,158,.6);box-shadow:0 14px 36px rgba(246,124,158,.25)}
+   .contact__list li::before{left:1rem;top:50%;translate:0 -50%;width:2.7rem;height:2.7rem;border-radius:50%;
+     background:linear-gradient(135deg,#f67c9e,#fdab12);box-shadow:0 0 22px rgba(246,124,158,.6)}
+   .contact__list li:nth-child(2)::before{background:linear-gradient(135deg,#fdab12,#f6d365);box-shadow:0 0 22px rgba(253,171,18,.55)}
+   .contact__list li:nth-child(3)::before{background:linear-gradient(135deg,#8d7bff,#f67c9e);box-shadow:0 0 22px rgba(141,123,255,.6)}
+   .contact__list span{color:#fdab12}
+   
+   .form{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-top:1px solid rgba(255,255,255,.16);border-radius:28px;
+     background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
+     -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+     box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 60px rgba(141,123,255,.15)}
+   .form input,.form select,.form textarea{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:14px;transition:border-color .25s,box-shadow .25s,background .25s}
+   .form input:focus,.form select:focus,.form textarea:focus{background:rgba(255,255,255,.11);border-color:#f67c9e;box-shadow:0 0 0 4px rgba(246,124,158,.22),0 0 24px rgba(246,124,158,.25)}
+   .form .btn{position:relative;overflow:hidden;background:linear-gradient(135deg,#f67c9e,#fdab12);border:0;color:#1b2416;padding:.9rem 2rem;box-shadow:0 10px 28px rgba(246,124,158,.45)}
+   .form .btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transition:left .7s}
+   .form .btn:hover::after{left:130%}
+   
+   /* ---------- footer ---------- */
+   .footer{background:radial-gradient(60% 120% at 15% 0%,rgba(246,124,158,.22),transparent 70%),radial-gradient(60% 120% at 88% 0%,rgba(141,123,255,.20),transparent 70%),linear-gradient(180deg,#f9f1ea,#fff0f6)}
+   .footer::before{height:4px;box-shadow:0 0 18px rgba(246,124,158,.7)}
+   .footer p{background:linear-gradient(100deg,#2d5a16,#5547ac,#f67c9e);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:1;font-weight:500;letter-spacing:.02em}
+   .footer p::before{content:"✦  ✧  ✦";display:block;margin-bottom:.5rem;letter-spacing:.8em;color:#f67c9e;-webkit-text-fill-color:#f67c9e;opacity:.8}
+   
+   @media (prefers-reduced-motion:reduce){
+     #certifications::before,#portfolio::before,#contact::before,#certifications .section__head h2,#portfolio .section__head h2,#contact .section__head h2{animation:none}
+   }
+   @media (hover:none){
+     .cert2::after,.work button::before,.form::after{display:none}   /* no pointer to follow on touch */
+   }
+   
+   /* ---------- polish pass ---------- */
+   /* the old dashed borders were !important with higher specificity: match and beat them */
+   .portfolio-section-column.graphics-col{border:1px solid rgba(255,255,255,.9) !important}
+   .portfolio-section-column.systems-col{border:1px solid rgba(255,255,255,.9) !important}
+   /* sub-headings inside the portfolio and the mood board title get the same gradient */
+   #portfolio .subhead,#portfolio .portfolio-section-column h3{
+     background:linear-gradient(100deg,#2d5a16,#5547ac 60%,#f67c9e);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+   /* contact glow a touch brighter so it reads on the dark background */
+   #contact::before{opacity:1;filter:saturate(1.35) brightness(1.25)}
+   /* the location row should show a pin, not "in" */
+   .contact__list li:nth-child(3)::before{content:"⌖";font-size:1.2rem;color:#111}
+   
+   /* headings were block-wide so the gradient only showed its middle colour: shrink them to the text */
+   #certifications .section__head h2,#portfolio .section__head h2,#contact .section__head h2,
+   #portfolio .subhead,.portfolio-column-title{width:fit-content;max-width:100%;margin-inline:auto}
+   .portfolio-column-title{display:block}
+   /* keep the star field behind the content, so it never draws over photos or text */
+   .section .wrap{position:relative;z-index:2}

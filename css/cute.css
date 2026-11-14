@@ -1,0 +1,347 @@
+/* =====================================================================
+   CUTE LAYER: kawaii touches for the Portfolio and Contact sections.
+   Loaded after Aurora.css. Delete its <link> in index.html to undo.
+   ===================================================================== */
+
+/* ---------- little hearts around the section intro ---------- */
+#portfolio .section__head .lead::before{content:"♡ ";color:#f67c9e}
+#portfolio .section__head .lead::after{content:" ♡";color:#fdab12}
+
+/* ---------- filter pills: dashed + bouncy ---------- */
+#portfolio .filters{border:2px dashed #f9b4c8;background:rgba(255,255,255,.78)}
+#portfolio .filter{transition:background .25s,color .25s,transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+#portfolio .filter:hover:not(.is-active){background:#ffe3ec;transform:translateY(-2px) rotate(-1.5deg)}
+
+/* ---------- the two big panels: pastel, dashed, with corner stickers ---------- */
+#portfolio .portfolio-section-column.graphics-col{
+  position:relative;
+  background:linear-gradient(160deg,rgba(255,240,246,.9),rgba(255,250,240,.85)) !important;
+  border:3px dashed #f7a3be !important;border-radius:40px !important;
+  box-shadow:0 18px 50px rgba(246,124,158,.22),inset 0 0 0 6px rgba(255,255,255,.75) !important}
+#portfolio .portfolio-section-column.systems-col{
+  background:linear-gradient(160deg,rgba(243,238,255,.92),rgba(255,245,250,.85)) !important;
+  border:3px dashed #b3a4ff !important;border-radius:40px !important;
+  box-shadow:0 18px 50px rgba(141,123,255,.24),inset 0 0 0 6px rgba(255,255,255,.75) !important}
+
+#portfolio .portfolio-section-column::before,
+#portfolio .portfolio-section-column::after{position:absolute;z-index:6;pointer-events:none;font-size:2rem;line-height:1;text-shadow:0 3px 0 rgba(255,255,255,.9)}
+#portfolio .graphics-col::before{content:"✿";top:-20px;left:26px;color:#f67c9e;--r:-12deg;transform:rotate(-12deg)}
+#portfolio .graphics-col::after{content:"♡";bottom:-18px;right:30px;color:#fdab12;--r:10deg;transform:rotate(10deg)}
+#portfolio .systems-col::before{content:"☾";top:-22px;right:26px;color:#8d7bff;--r:12deg;transform:rotate(12deg)}
+#portfolio .systems-col::after{content:"✦";bottom:-18px;left:30px;color:#f67c9e;--r:-8deg;transform:rotate(-8deg)}
+
+@keyframes cuteBob{
+  0%,100%{transform:translateY(0) rotate(var(--r,0deg))}
+  50%{transform:translateY(-6px) rotate(calc(var(--r,0deg) + 9deg))}}
+@media (prefers-reduced-motion:no-preference){
+  #portfolio .portfolio-section-column::before{animation:cuteBob 3.6s ease-in-out infinite}
+  #portfolio .portfolio-section-column::after{animation:cuteBob 4.2s ease-in-out -1.4s infinite}
+}
+
+/* ---------- sub-group titles become little stickers ---------- */
+#portfolio .design-subgroup-title{
+  display:table;margin:0 auto 1.1rem;padding:.35rem 1.3rem;
+  background:#fff;border:2px dashed #f9b4c8;border-radius:999px;
+  color:var(--green);font-size:1.2rem;letter-spacing:.06em;
+  box-shadow:0 4px 0 #ffe0ea}
+#portfolio .design-subgroup-title::before{content:"♡ ";color:#f67c9e}
+#portfolio .design-subgroup-title::after{content:" ♡";color:#fdab12}
+
+/* ---------- design + software cards: rounded, sticker-ish (games keep their arcade look) ---------- */
+#portfolio .work:not([data-kind="game"]){
+  border:3px solid #fff;border-radius:26px;
+  box-shadow:0 10px 24px rgba(246,124,158,.18),0 0 0 2px #ffd3e0;
+  transition:transform .2s ease-out,box-shadow .3s,border-color .3s,rotate .35s cubic-bezier(.3,1.6,.5,1)}
+#portfolio .work:not([data-kind="game"]):hover{
+  border-color:#fff;
+  box-shadow:0 18px 34px rgba(246,124,158,.32),0 0 0 3px #f9a8c3}
+#portfolio .work:not([data-kind="game"]) button{border-radius:22px 22px 0 0}
+
+/* gentle polaroid tilt in the graphics column (uses `rotate`, so it never fights the hover tilt) */
+#portfolio .graphics-col .work:nth-child(odd){rotate:-1.2deg}
+#portfolio .graphics-col .work:nth-child(even){rotate:1.2deg}
+#portfolio .graphics-col .work:hover{rotate:0deg}
+
+/* category badge: heart pill */
+#portfolio .work:not([data-kind="game"])::before{
+  content:"♡ " attr(data-cat);top:.6rem;left:.6rem;
+  background:linear-gradient(135deg,#f67c9e,#ff9ec0);color:#fff;
+  border-radius:99px;box-shadow:0 3px 0 rgba(0,0,0,.08)}
+#portfolio .work[data-cat="software"]:not([data-kind="game"])::before{background:linear-gradient(135deg,#8d7bff,#b6a8ff)}
+
+/* hover overlay: soft pink instead of dark green */
+#portfolio .work:not([data-kind="game"]) button::after{
+  content:"✿  view  ✿";background:rgba(246,124,158,.55);
+  font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* captions */
+#portfolio .work:not([data-kind="game"]) figcaption{
+  background:linear-gradient(180deg,#fff,#fff0f5);
+  border-top:2px dotted #f9b4c8;color:var(--green)}
+#portfolio .work:not([data-kind="game"]) figcaption::before{content:"♡";color:#f67c9e}
+
+/* ---------- playable game cards: keep the retro vibe, just rounder + pinker ---------- */
+#portfolio .work[data-kind="game"]{border-radius:18px;box-shadow:6px 6px 0 #f9a8c3}
+#portfolio .work[data-kind="game"]:hover{box-shadow:9px 9px 0 var(--orange)}
+.game-tag{border-radius:99px;box-shadow:2px 2px 0 var(--pink)}
+
+/* ---------- mood board title ---------- */
+#portfolio .mood .subhead::before{content:"✿ ";color:#f67c9e;-webkit-text-fill-color:#f67c9e}
+#portfolio .mood .subhead::after{content:" ✿";color:#fdab12;-webkit-text-fill-color:#fdab12}
+
+/* =====================================================================
+   MOOD BOARD: additions only (nothing that already exists is changed)
+   ===================================================================== */
+#portfolio .mood{position:relative}
+#portfolio .mood .subhead__sub::after{content:"♡  ✿  ♡";display:block;margin-top:.35rem;color:#f67c9e;letter-spacing:.3em}
+#portfolio .mood::before,#portfolio .mood::after{position:absolute;z-index:3;pointer-events:none;font-size:1.8rem;line-height:1}
+#portfolio .mood::before{content:"♡";top:6px;left:8%;color:#f67c9e;--r:-12deg;transform:rotate(-12deg)}
+#portfolio .mood::after{content:"✿";top:30px;right:9%;color:#fdab12;--r:10deg;transform:rotate(10deg)}
+@media (prefers-reduced-motion:no-preference){
+  #portfolio .mood::before{animation:cuteBob 3.8s ease-in-out infinite}
+  #portfolio .mood::after{animation:cuteBob 4.4s ease-in-out -1.8s infinite}
+}
+
+/* =====================================================================
+   CONTACT
+   ===================================================================== */
+#contact .section__head .lead::before{content:"♡ ";color:#f67c9e}
+#contact .section__head .lead::after{content:" ♡";color:#fdab12}
+
+/* floating corner stickers */
+#contact .wrap::before,#contact .wrap::after{position:absolute;pointer-events:none;font-size:2rem;line-height:1;opacity:.85}
+#contact .wrap::before{content:"✿";top:-2.4rem;left:1%;color:#f67c9e;--r:-12deg;transform:rotate(-12deg)}
+#contact .wrap::after{content:"♡";bottom:-2.4rem;right:2%;color:#fdab12;--r:10deg;transform:rotate(10deg)}
+@media (prefers-reduced-motion:no-preference){
+  #contact .wrap::before{animation:cuteBob 3.6s ease-in-out infinite}
+  #contact .wrap::after{animation:cuteBob 4.2s ease-in-out -1.4s infinite}
+}
+
+/* info rows: dashed, rounded, emoji icons, heart on the right */
+#contact .contact__list li{
+  border:2px dashed rgba(246,124,158,.55);border-radius:26px;padding-right:2.8rem;
+  transition:transform .3s cubic-bezier(.3,1.6,.5,1),border-color .3s,box-shadow .3s}
+#contact .contact__list li:hover{transform:translateX(8px) rotate(-.8deg);border-color:#f67c9e}
+#contact .contact__list li::after{
+  content:"♡";position:absolute;right:1.1rem;top:50%;translate:0 -50%;
+  color:#f67c9e;font-size:1.1rem;opacity:.85;transition:transform .3s}
+#contact .contact__list li:hover::after{transform:scale(1.4)}
+#contact .contact__list li:nth-child(1)::before{content:"💌";font-size:1.25rem;color:inherit}
+#contact .contact__list li:nth-child(2)::before{content:"💻";font-size:1.2rem;color:inherit}
+#contact .contact__list li:nth-child(3)::before{content:"📍";font-size:1.2rem;color:inherit}
+
+/* form: soft dashed card, rounder fields, bubbly button */
+#contact .form{
+  border:2px dashed rgba(246,124,158,.65);border-radius:34px;
+  box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 60px rgba(246,124,158,.18),inset 0 0 0 6px rgba(255,255,255,.04)}
+#contact .form label{color:#ffd3e0}
+#contact .form input,#contact .form select,#contact .form textarea{border-radius:18px}
+#contact .form ::placeholder{color:rgba(255,211,224,.5)}
+#contact .form .btn{
+  border-radius:999px;
+  box-shadow:0 10px 28px rgba(246,124,158,.45),0 4px 0 #c4456c;
+  transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+#contact .form .btn:hover{transform:translateY(-3px) rotate(-1deg)}
+#contact .counter{color:#ffd3e0}
+
+/* =====================================================================
+   LOADING SCREEN
+   ===================================================================== */
+.boot{
+  background:
+    radial-gradient(circle at 18% 16%,rgba(246,124,158,.30),transparent 45%),
+    radial-gradient(circle at 86% 86%,rgba(141,123,255,.38),transparent 50%),
+    #0f1f0a;
+  color:#ffd3e0;text-shadow:0 0 12px rgba(246,124,158,.55)}
+/* scanlines -> polka dots */
+.boot::before{background:radial-gradient(rgba(246,124,158,.20) 2px,transparent 2.6px) 0 0/30px 30px}
+.boot b{color:var(--orange)}
+.boot__bar{border:3px solid #f67c9e;border-radius:99px;padding:3px;overflow:hidden;background:rgba(255,255,255,.06);box-shadow:0 0 22px rgba(246,124,158,.45)}
+.boot__bar i{border-radius:99px;background:linear-gradient(90deg,#f67c9e,#fdab12)}
+.boot small{color:#c9b8ff}
+.boot::after{content:"✿  ♡  ✦";margin-top:1.4rem;color:#f67c9e;letter-spacing:.4em;font-size:1rem;--r:0deg}
+@media (prefers-reduced-motion:no-preference){
+  .boot::after{animation:cuteBob 2.4s ease-in-out infinite}
+}
+
+/* =====================================================================
+   SKILLS
+   ===================================================================== */
+#skills .section__head .lead::before{content:"♡ ";color:#f67c9e}
+#skills .section__head .lead::after{content:" ♡";color:#fdab12}
+
+/* floating corner stickers */
+#skills .wrap::before,#skills .wrap::after{position:absolute;pointer-events:none;font-size:2rem;line-height:1;opacity:.85}
+#skills .wrap::before{content:"✿";top:-2.4rem;left:1%;color:#f67c9e;--r:-12deg;transform:rotate(-12deg)}
+#skills .wrap::after{content:"♡";bottom:-2.4rem;right:2%;color:#fdab12;--r:10deg;transform:rotate(10deg)}
+@media (prefers-reduced-motion:no-preference){
+  #skills .wrap::before{animation:cuteBob 3.6s ease-in-out infinite}
+  #skills .wrap::after{animation:cuteBob 4.2s ease-in-out -1.4s infinite}
+}
+
+/* stat pills + filter pills: round, dashed, bouncy */
+#skills .skill-stats span{border-radius:99px;border:2px dashed #f9a8c3;box-shadow:none;background:rgba(255,255,255,.06);color:#ffd3e0}
+#skills .skill-filter{
+  border-radius:99px;border:2px dashed rgba(246,124,158,.6);
+  transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,border-color .2s,box-shadow .2s}
+#skills .skill-filter:hover{transform:translateY(-2px) rotate(-1.5deg)}
+#skills .skill-filter.is-active{border-style:solid;box-shadow:0 4px 0 #c4456c}
+
+/* class panels: soft rounded bubbles */
+#skills .skills-two-column-layout .skill-group{
+  border-radius:30px;border:2px dashed var(--ac);
+  box-shadow:0 14px 34px color-mix(in srgb,var(--ac) 22%,transparent)}
+#skills .skills-two-column-layout .skill-group::before{content:"♡  " attr(data-group)}
+#skills .skills-two-column-layout .skill-category-title::before{border-radius:50%}
+
+/* skill cards */
+#skills .skills-two-column-layout .skill-group .card-front,
+#skills .skills-two-column-layout .skill-group .card-back{border-radius:20px}
+#skills .skills-two-column-layout .skill-group .card-front{
+  border:2px dashed color-mix(in srgb,var(--ac) 65%,transparent);
+  box-shadow:0 4px 12px rgba(0,0,0,.25)}
+#skills .skills-two-column-layout .skill-group .skill-card:hover .card-front,
+#skills .skills-two-column-layout .skill-group .skill-card:hover .card-back{
+  box-shadow:0 8px 20px color-mix(in srgb,var(--ac) 45%,transparent)}
+#skills .sk-badge{border-radius:99px;border:2px solid rgba(255,255,255,.55);box-shadow:0 3px 0 rgba(0,0,0,.25)}
+
+/* =====================================================================
+   CERTIFICATES
+   ===================================================================== */
+#certifications .section__head .lead::before{content:"♡ ";color:#f67c9e}
+#certifications .section__head .lead::after{content:" ♡";color:#fdab12}
+
+/* floating corner stickers */
+#certifications .wrap::before,#certifications .wrap::after{position:absolute;pointer-events:none;font-size:2rem;line-height:1;opacity:.9}
+#certifications .wrap::before{content:"✿";top:-2.4rem;left:1%;color:#f67c9e;--r:-12deg;transform:rotate(-12deg)}
+#certifications .wrap::after{content:"♡";bottom:-2.4rem;right:2%;color:#fdab12;--r:10deg;transform:rotate(10deg)}
+@media (prefers-reduced-motion:no-preference){
+  #certifications .wrap::before{animation:cuteBob 3.6s ease-in-out infinite}
+  #certifications .wrap::after{animation:cuteBob 4.2s ease-in-out -1.4s infinite}
+}
+
+/* stats + filters */
+#certifications .cstats span{border:2px dashed #f9b4c8}
+#certifications .cfilters{border:2px dashed #f9b4c8;background:rgba(255,255,255,.78)}
+#certifications .cfilter{transition:background .25s,color .25s,transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+#certifications .cfilter:hover:not(.is-active){background:#ffe3ec;transform:translateY(-2px) rotate(-1.5deg)}
+
+/* cards: rounded sticker/polaroid look */
+#certifications .cert2{
+  border:3px solid #fff;border-radius:30px;
+  box-shadow:0 10px 24px rgba(246,124,158,.18),0 0 0 2px #ffd3e0;
+  transition:border-color .3s,box-shadow .3s,transform .3s,opacity .7s,rotate .35s cubic-bezier(.3,1.6,.5,1)}
+#certifications .cert2:hover{border-color:#fff;box-shadow:0 18px 34px rgba(246,124,158,.32),0 0 0 3px #f9a8c3}
+#certifications .cert2:nth-child(odd){rotate:-1deg}
+#certifications .cert2:nth-child(even){rotate:1deg}
+#certifications .cert2:hover{rotate:0deg}
+#certifications .cert2__img{border-bottom:3px dotted #f9b4c8}
+#certifications .cert2__img::after{content:"✿  view certificate  ✿";background:rgba(246,124,158,.55);font-size:1.25rem}
+#certifications .cert2__new::before{content:"♡ "}
+#certifications .cert2__body{border-top:0}
+#certifications .cert2__body p.cert2__note{border:2px dashed #fdd08a;border-radius:16px;background:#fff7e6}
+#certifications .cert2__date::before{content:"♡ "}
+
+/* full-screen certificate viewer */
+.cview__title::before{content:"♡ ";color:#f67c9e}
+.cview__img{border:6px solid #fff;border-radius:20px}
+.cview__thumbs button{border-radius:14px}
+
+/* =====================================================================
+   EVERYWHERE ELSE: nav, hero, about, ticker, services, footer, globals
+   (the mood board is not touched)
+   ===================================================================== */
+
+/* ---------- global bits ---------- */
+.btn{transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,color .2s,box-shadow .2s}
+.btn:not(.btn--ghost):not(.btn--outline){box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.btn:hover{transform:translateY(-3px) rotate(-1deg)}
+.progress{height:5px;border-radius:0 99px 99px 0}
+.totop{border:3px solid #fff;box-shadow:0 5px 0 #c4456c;transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s}
+.totop.show:hover{transform:translateY(-4px) rotate(-6deg)}
+.toast{border:2px dashed #ffd3e0;background:#f67c9e;color:#fff}
+
+/* ---------- nav ---------- */
+.nav{border-bottom:2px dashed rgba(246,124,158,.55)}
+.nav__links a:not(.btn)::after{height:3px;border-radius:3px}
+.nav__links a:not(.btn):hover::before,
+.nav__links a:not(.btn).is-active::before{content:"♡";position:absolute;top:-15px;left:50%;translate:-50% 0;font-size:.7rem;color:#f67c9e}
+
+/* ---------- hero ---------- */
+.hero h1{text-shadow:0 0 30px rgba(109,255,42,.35),3px 3px 0 rgba(246,124,158,.55)}
+.hero__inner::before,.hero__inner::after{position:absolute;pointer-events:none;line-height:1}
+.hero__inner::before{content:"✿";top:-.6rem;left:-.4rem;font-size:2.3rem;color:#f67c9e;--r:-12deg;transform:rotate(-12deg)}
+.hero__inner::after{content:"♡";bottom:-.4rem;right:-.4rem;font-size:2.1rem;color:#fdab12;--r:10deg;transform:rotate(10deg)}
+.hero__cta .btn::after{content:" ♡"}
+@media (prefers-reduced-motion:no-preference){
+  .hero__inner::before{animation:cuteBob 3.4s ease-in-out infinite}
+  .hero__inner::after{animation:cuteBob 4s ease-in-out -1.2s infinite}
+}
+
+/* ---------- gradient headings + frosted eyebrow pills for the sections Aurora skipped ---------- */
+#about .section__head h2,#services .services-header h2{
+  background:linear-gradient(100deg,#2d5a16 0%,#5547ac 45%,#f67c9e 75%,#fdab12 100%);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  width:fit-content;max-width:100%;margin-inline:auto;animation:auroraText 9s ease-in-out infinite alternate}
+#skills .section__head h2{
+  background:linear-gradient(100deg,#fff 0%,#ffd3e0 40%,#fdab12 75%,#8d7bff 100%);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  width:fit-content;max-width:100%;margin-inline:auto;animation:auroraText 9s ease-in-out infinite alternate}
+#about .eyebrow,#services .eyebrow,#skills .eyebrow{
+  display:inline-flex;align-items:center;padding:.4rem 1.2rem;border-radius:999px;margin-bottom:1rem;
+  background:rgba(255,255,255,.7);border:1px dashed rgba(246,124,158,.6);box-shadow:0 6px 22px rgba(246,124,158,.18)}
+#skills .eyebrow{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.25)}
+@media (prefers-reduced-motion:reduce){
+  #about .section__head h2,#services .services-header h2,#skills .section__head h2{animation:none}
+}
+
+/* ---------- floating corner stickers for the remaining sections ---------- */
+#about .wrap::before,#about .wrap::after,
+#services .wrap::before,#services .wrap::after,
+#portfolio .wrap::before,#portfolio .wrap::after{position:absolute;pointer-events:none;font-size:2rem;line-height:1;opacity:.85}
+#about .wrap::before{content:"✦";top:-2.2rem;right:2%;color:#fdab12;--r:12deg;transform:rotate(12deg)}
+#about .wrap::after{content:"✿";bottom:-2rem;left:1%;color:#f67c9e;--r:-10deg;transform:rotate(-10deg)}
+#services .wrap::before{content:"♡";top:-2.4rem;left:2%;color:#f67c9e;--r:-12deg;transform:rotate(-12deg)}
+#services .wrap::after{content:"✿";bottom:-2.4rem;right:2%;color:#8d7bff;--r:10deg;transform:rotate(10deg)}
+#portfolio .wrap::before{content:"✿";top:-2.4rem;left:1%;color:#f67c9e;--r:-12deg;transform:rotate(-12deg)}
+#portfolio .wrap::after{content:"♡";top:-2.2rem;right:2%;color:#fdab12;--r:10deg;transform:rotate(10deg)}
+@media (prefers-reduced-motion:no-preference){
+  #about .wrap::before,#services .wrap::before,#portfolio .wrap::before{animation:cuteBob 3.6s ease-in-out infinite}
+  #about .wrap::after,#services .wrap::after,#portfolio .wrap::after{animation:cuteBob 4.2s ease-in-out -1.4s infinite}
+}
+
+/* ---------- about ---------- */
+.vwin{border-radius:30px}
+.vwin__bar i{width:14px;height:14px}
+.facts div{border-radius:22px}
+.facts dt::before{content:"♡ ";color:#f67c9e}
+.about2__stats li{border:2px dashed #f9b4c8;border-radius:22px}
+
+/* ---------- divider ticker ---------- */
+.ticker{border-block:3px dashed var(--pink)}
+.ticker__track span::after{content:"♡"}
+.ticker__track span:nth-child(odd)::after{content:"✿"}
+
+/* ---------- services ---------- */
+.service-card{
+  border-radius:32px;border:3px solid rgba(255,255,255,.55);
+  transition:transform .3s ease,box-shadow .3s ease,rotate .35s cubic-bezier(.3,1.6,.5,1)}
+.service-card:nth-child(1){rotate:-1deg}
+.service-card:nth-child(2){rotate:1deg}
+.service-card:nth-child(3){rotate:-1deg}
+.service-card:hover{rotate:0deg}
+.service-icon{border-radius:50%}
+.bullet-icon{font-size:0}
+.bullet-icon::after{content:"♡";font-size:.8rem;color:var(--ink)}
+.process__steps li{border:2px dashed #f9b4c8;border-radius:28px}
+.process__steps li:hover{border-style:solid}
+.services-cta{border-radius:34px;border:2px dashed #f67c9e}
+
+/* ---------- portfolio pop-up (design + software; the arcade game window stays as is) ---------- */
+.lightbox__card{border-radius:30px;border:3px dashed #f67c9e}
+.lightbox__card:not(.is-game) .lightbox__info h3::before{content:"♡ ";color:#f67c9e}
+
+/* ---------- footer ---------- */
+.footer p::after{
+  content:"made with ♡ and lots of code";display:block;margin-top:.35rem;font-size:.8rem;
+  letter-spacing:.12em;color:#f67c9e;-webkit-text-fill-color:#f67c9e}

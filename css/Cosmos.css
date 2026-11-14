@@ -7,17 +7,23 @@ html{scrollbar-color:var(--pink) #0f1f0a;scrollbar-width:thin}
 /* constellation canvas */
 .cosmos-bg{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.55}
 
+/* cursor star effects canvas */
+.cosmos-fx{position:fixed;inset:0;width:100%;height:100%;z-index:200;pointer-events:none}
+
 /* boot screen */
 .boot{position:fixed;inset:0;z-index:9999;background:#08140a;color:var(--neon);display:grid;place-content:center;font:400 .8rem/2.2 'Press Start 2P',monospace;padding:1.5rem;cursor:pointer;transition:opacity .6s,visibility .6s}
-.boot.is-out{opacity:0;visibility:hidden}
+.boot.is-out{opacity:0;visibility:hidden;pointer-events:none}
+.no-boot .boot{display:none}
+.is-booting,.is-booting body{overflow:hidden}
+/* safety net: if the script never runs, the boot screen still clears itself */
+.boot{animation:bootFail .5s 4s forwards}
+@keyframes bootFail{to{opacity:0;visibility:hidden;pointer-events:none}}
 .boot::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 2px,transparent 2px 4px);pointer-events:none}
 .boot b{color:var(--orange);font-weight:400}
 .boot__bar{margin-top:1.2rem;height:12px;width:min(320px,80vw);border:2px solid var(--neon);padding:2px}
 .boot__bar i{display:block;height:100%;width:0;background:var(--pink);transition:width 1.6s steps(16)}
 .boot small{display:block;margin-top:1rem;color:#7aa86a;font-size:.5rem}
 
-/* numbered section labels */
-.eyebrow[data-n]::before{content:attr(data-n) "  ✦  ";color:var(--orange);font-family:'Press Start 2P',monospace;font-size:.7em;letter-spacing:.05em}
 /* skill ticker */
 .ticker{overflow:hidden;background:var(--ink);border-block:3px solid var(--pink);padding:.7rem 0;position:relative;z-index:2}
 .ticker__track{display:flex;gap:2.2rem;width:max-content;font:400 .75rem/1 'Press Start 2P',monospace;color:var(--neon);text-transform:uppercase;white-space:nowrap}
@@ -40,8 +46,6 @@ html{scrollbar-color:var(--pink) #0f1f0a;scrollbar-width:thin}
 .skills-two-column-layout .skill-group .card-front{border:2px solid color-mix(in srgb,var(--ac) 60%,transparent);border-top:2px solid var(--ac);box-shadow:3px 3px 0 rgba(0,0,0,.45)}
 .skills-two-column-layout .skill-group .skill-card:hover .card-front,
 .skills-two-column-layout .skill-group .skill-card:hover .card-back{box-shadow:5px 5px 0 var(--ac)}
-.skill-card{transition:translate .15s}
-.skill-card:hover{translate:-2px -3px}
 .sk-badge{border-radius:4px;box-shadow:2px 2px 0 rgba(0,0,0,.55);border:2px solid #111}
 .skill-card.is-picked .sk-badge{background:var(--neon)}
 @media (prefers-reduced-motion:no-preference){

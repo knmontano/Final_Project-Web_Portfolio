@@ -20,22 +20,6 @@
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 
-  /* 2. sparkle cursor trail (desktop only) */
-  if (fine && !reduce) {
-    var glyphs = ['✦', '✧', '✶'], colors = ['#f67c9e', '#fdab12', '#6dff2a', '#8d7bff'], lastT = 0;
-    document.addEventListener('mousemove', function (e) {
-      var now = Date.now(); if (now - lastT < 70) return; lastT = now;
-      var s = document.createElement('span');
-      s.className = 'spark';
-      s.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
-      s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
-      s.style.color = colors[Math.floor(Math.random() * colors.length)];
-      s.style.fontSize = (10 + Math.random() * 12) + 'px';
-      document.body.appendChild(s);
-      setTimeout(function () { s.remove(); }, 800);
-    });
-  }
-
   /* 3. 3D tilt on cards + hero icon parallax */
   if (fine && !reduce) {
     document.querySelectorAll('.ad, .cert, .work, .service-card').forEach(function (c) {
